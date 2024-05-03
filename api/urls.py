@@ -43,6 +43,7 @@ urlpatterns = [
 
 
 if settings.DEBUG:
+        urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
         urlpatterns += static(settings.MEDIA_URL,
                               document_root=settings.MEDIA_ROOT)
 #Used in order to set the path for where profile pictures can be saved (Not used in production, only for development purposes)
