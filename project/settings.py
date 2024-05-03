@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv(
     'DJANGO_SECRET_KEY',
-    # safe value used for development when DJANGO_SECRET_KEY might not be set
+    'default_secret_key_for_development_only'  # This is the fallback value
 )
 
 AUTH_USER_MODEL = 'api.User'
@@ -36,7 +36,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -70,16 +70,18 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',  # Moved WhiteNoiseMiddleware down
+    'api.middleware.ErrorHandlingMiddleware',  # Custom middleware to stop 404 and 403 errors
 ]
 
 
 ROOT_URLCONF = 'project.urls'
 
-CORS_ALLOW_METHODS = ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
+# Only possible methods and headers a client can make
+CORS_ALLOW_METHODS = ['GET', 'POST']
 CORS_ALLOW_HEADERS = ['Authorization', 'Content-Type', 'X-CSRFToken']
 CORS_ALLOW_CREDENTIALS = True
 
-CORS_ORIGIN_WHITELIST = [
+CORS_ORIGIN_WHITELIST = [ # Local host urls
     "http://localhost:8000",
     "http://localhost:5173",
     "http://127.0.0.1:8000",
@@ -131,9 +133,10 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'project.wsgi.application'
-ASGI_APPLICATION = 'project.routing.application'
+ASGI_APPLICATION = 'project.routing.application' # ASGI application for channels so that online gaming is possiblw
 
 
+# Handles channels for online game session
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels.layers.InMemoryChannelLayer",
@@ -143,11 +146,6 @@ CHANNEL_LAYERS = {
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
-
-# DATABASES = {
-#     'default': database.config()
-# }
 
 DATABASES = {
     'default': {
@@ -168,10 +166,11 @@ DEFAULT_CHARSET = 'utf-8'
 # Set default encoding for HTTP responses
 DEFAULT_CONTENT_TYPE = 'text/html; charset=utf-8'
 
+# Cache storage in order to allow users to resume games (24 hour limit)
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': os.getcwd() + '\\var\\tmp\\django_cache',  # Or another path where you want to store cache files
+        'LOCATION': os.getcwd() + '\\var\\tmp\\django_cache', 
     }
 }
 
@@ -193,6 +192,16 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# Security settings for HTTPS - ONLY REQUIRED FOR PRODUCTION
+SECURE_SSL_REDIRECT = True  # Redirect all non-HTTPS requests to HTTPS
+SESSION_COOKIE_SECURE = True  # Avoids returning the session cookie over non-HTTPS
+CSRF_COOKIE_SECURE = True  # Avoids returning the CSRF cookie over non-HTTPS
+SECURE_HSTS_SECONDS = 31536000  # Enable HTTP Strict Transport Security (HSTS)
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+SECURE_BROWSER_XSS_FILTER = True
+X_FRAME_OPTIONS = 'DENY'
 
 
 # Internationalization

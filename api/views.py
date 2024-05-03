@@ -43,7 +43,7 @@ def signup_view(request):
             user = form.save()
             login(request, user, backend='api.backends.EmailAuthBackend') # Custom backend served to login via email
 
-            return HttpResponseRedirect('http://127.0.0.1/')
+            return HttpResponseRedirect('http://localhost:8000/')
     else:
         form = signupForm()
     return render(request, 'api/spa/api/auth/signup.html', {'form': form})
@@ -64,7 +64,7 @@ def login_view(request):
 
             if user is not None:
                 login(request, user)
-                return HttpResponseRedirect('http://localhost') # Redirect to the frontend on success
+                return HttpResponseRedirect('http://localhost:8000/') # Redirect to the frontend on success
             else:
                 # Add an error to the form
                 form.add_error(None, 'Invalid email or password')
