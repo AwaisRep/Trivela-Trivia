@@ -70,14 +70,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',  # Moved WhiteNoiseMiddleware down
-    'api.middleware.ErrorHandlingMiddleware',  # Custom middleware to stop 404 and 403 errors
 ]
 
 
 ROOT_URLCONF = 'project.urls'
 
 # Only possible methods and headers a client can make
-CORS_ALLOW_METHODS = ['GET', 'POST']
+CORS_ALLOW_METHODS = ['GET', 'POST', 'OPTIONS']
 CORS_ALLOW_HEADERS = ['Authorization', 'Content-Type', 'X-CSRFToken']
 CORS_ALLOW_CREDENTIALS = True
 
@@ -195,14 +194,14 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Security settings for HTTPS - ONLY REQUIRED FOR PRODUCTION
-# SECURE_SSL_REDIRECT = True  # Redirect all non-HTTPS requests to HTTPS
-# SESSION_COOKIE_SECURE = True  # Avoids returning the session cookie over non-HTTPS
-# CSRF_COOKIE_SECURE = True  # Avoids returning the CSRF cookie over non-HTTPS
-# SECURE_HSTS_SECONDS = 31536000  # Enable HTTP Strict Transport Security (HSTS)
-# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-# SECURE_HSTS_PRELOAD = True
-# SECURE_BROWSER_XSS_FILTER = True
-# X_FRAME_OPTIONS = 'DENY'
+SECURE_SSL_REDIRECT = True  # Redirect all non-HTTPS requests to HTTPS
+SESSION_COOKIE_SECURE = True  # Avoids returning the session cookie over non-HTTPS
+CSRF_COOKIE_SECURE = True  # Avoids returning the CSRF cookie over non-HTTPS
+SECURE_HSTS_SECONDS = 31536000  # Enable HTTP Strict Transport Security (HSTS)
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+SECURE_BROWSER_XSS_FILTER = True
+X_FRAME_OPTIONS = 'DENY'
 
 
 # Internationalization
