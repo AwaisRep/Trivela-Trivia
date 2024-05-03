@@ -30,6 +30,7 @@ appname = "trivelaTrivia"
 
 def main_spa(request: HttpRequest) -> HttpResponse:
     ''' Provides main area content '''
+    print(settings.FRONTEND_URL)
     return render(request, 'api/spa/index.html', {})
 
 def signup_view(request):
