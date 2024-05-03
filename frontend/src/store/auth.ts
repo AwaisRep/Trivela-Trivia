@@ -70,7 +70,7 @@ export const useAuthStore = defineStore('auth', {
           return;
         }
 
-        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/logout/`, {
+        const response = await fetch(`https://localhost:8000/api/logout/`, {
           method: 'POST',
           credentials: 'include',
           headers: {
