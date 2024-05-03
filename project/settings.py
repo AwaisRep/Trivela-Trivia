@@ -147,14 +147,15 @@ CHANNEL_LAYERS = {
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'trivela_trivia',  # Name of your database
-        'USER': 'postgres',  # Database user
-        'PASSWORD': 'Awais2003!!?',  # Database password
-        'HOST': 'localhost',  # Set to empty string for localhost
-        'PORT': '5432',  # Set to empty string for default
+        'NAME': os.environ.get('DB_NAME', ''),  # Name of your database
+        'USER': os.environ.get('DB_USER', ''),  # Database user
+        'PASSWORD': os.environ.get('DB_PASSWORD', ''),  # Database password
+        'HOST': os.environ.get('DB_HOST', ''),  # Set to empty string for localhost
+        'PORT': os.environ.get('DB_PORT', '5432'),  # Set to empty string for default
     }
 }
 
@@ -194,14 +195,14 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Security settings for HTTPS - ONLY REQUIRED FOR PRODUCTION
-SECURE_SSL_REDIRECT = True  # Redirect all non-HTTPS requests to HTTPS
-SESSION_COOKIE_SECURE = True  # Avoids returning the session cookie over non-HTTPS
-CSRF_COOKIE_SECURE = True  # Avoids returning the CSRF cookie over non-HTTPS
-SECURE_HSTS_SECONDS = 31536000  # Enable HTTP Strict Transport Security (HSTS)
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_PRELOAD = True
-SECURE_BROWSER_XSS_FILTER = True
-X_FRAME_OPTIONS = 'DENY'
+# SECURE_SSL_REDIRECT = True  # Redirect all non-HTTPS requests to HTTPS
+# SESSION_COOKIE_SECURE = True  # Avoids returning the session cookie over non-HTTPS
+# CSRF_COOKIE_SECURE = True  # Avoids returning the CSRF cookie over non-HTTPS
+# SECURE_HSTS_SECONDS = 31536000  # Enable HTTP Strict Transport Security (HSTS)
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+# SECURE_HSTS_PRELOAD = True
+# SECURE_BROWSER_XSS_FILTER = True
+# X_FRAME_OPTIONS = 'DENY'
 
 
 # Internationalization
