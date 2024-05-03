@@ -1,0 +1,135 @@
+{
+  "clubs": {
+    "x1": "Real Madrid",
+    "x2": "AC Milan",
+    "x3": "Arsenal FC",
+    "y1": "AS Monaco",
+    "y2": "Valencia CF",
+    "y3": "Germany"
+  },
+  "answers": {
+    "x1y1": [
+      ["Emmanuel Adebayor", "Adebayor"],
+      ["Ricardo Carvalho", "Carvalho"],
+      ["Fabio Coentrao", "Coentrao"],
+      ["Mahamadou Diarra", "Diarra"],
+      ["Fabinho", "Fabinho"],
+      ["Gary Kagelmacher", "Kagelmacher"],
+      ["Fernando Morientes", "Morientes"],
+      ["Christian Panucci", "Panucci"],
+      ["James Rodríguez", "Rodriguez"],
+      ["Javier Saviola", "Saviola"],
+      ["Aurelien Tchouaméni", "Tchouameni"]
+    ],
+    "x2y1": [
+      ["Tiemoue Bakayoko", "Bakayoko"],
+      ["Fode Ballo-Toure", "Ballo-Toure"],
+      ["Oliver Bierhoff", "Bierhoff"],
+      ["Soualiho Meite", "Meite"],
+      ["Jeremy Menez", "Menez"],
+      ["Lucas Ocampos", "Ocampos"],
+      ["Christian Panucci", "Panucci"],
+      ["Mario Pasalic", "Pasalic"],
+      ["Pietro Pellegri", "Pellegri"],
+      ["Flavio Roma", "Roma"],
+      ["Florin Raducioiu", "Raducioiu"],
+      ["Stephan El Shaarawy", "El Shaarawy"],
+      ["Marco Simone", "Simone"],
+      ["Christian Vieri", "Vieri"],
+      ["George Weah", "Weah"],
+      ["Dario Simic", "Simic"]
+    ],
+    "x3y1": [
+      ["Emmanuel Adebayor", "Adebayor"],
+      ["Pierre-Emerick Aubameyang", "Aubameyang"],
+      ["Folarin Balogun", "Balogun"],
+      ["Park Chu-young", "Park"],
+      ["Cesc Fabregas", "Fabregas"],
+      ["Gilles Grimandi", "Grimandi"],
+      ["Thierry Henry", "Henry"],
+      ["Vito Mannone", "Mannone"],
+      ["Emmanuel Petit", "Petit"],
+      ["Sebastien Squillaci", "Squillaci"],
+      ["Christopher Wreh", "Wreh"]
+    ]
+    ,
+    "x1y2": [
+      ["Raul Albiol", "Albiol"],
+      ["Ivan Campo", "Campo"],
+      ["Sergio Canales", "Canales"],
+      ["Santiago Canizares", "Canizares"],
+      ["Denis Cheryshev", "Cheryshev"],
+      ["Claudia", "Claudia"],
+      ["Hugo Duro", "Duro"],
+      ["Quique Flores", "Flores"],
+      ["Fernando Gago", "Gago"],
+      ["Ezequiel Garay", "Garay"],
+      ["Peter González", "Gonzalez"],
+      ["Ivan Helguera", "Helguera"],
+      ["Isco", "Isco"],
+      ["Juan Jose Maqueda", "Maqueda"],
+      ["Alvaro Medran", "Medran"],
+      ["Predrag Mijatovic", "Mijatovic"],
+      ["Luis Milla", "Milla"],
+      ["Fernando Morientes", "Morientes"],
+      ["Daniel Parejo", "Parejo"],
+      ["Roberto Soldado", "Soldado"],
+      ["Cesar Sanchez", "Sanchez"]
+    ],
+    "x2y2": [
+      ["Leonardo Araujo", "Leonardo"],
+      ["Roberto Ayala", "Ayala"],
+      ["Samu Castillejo", "Castillejo"],
+      ["Patrick Cutrone", "Cutrone"],
+      ["Alessandro Florenzi", "Florenzi"],
+      ["Patrick Kluivert", "Kluivert"],
+      ["Yunus Musah", "Musah"],
+      ["Ricardo Oliveira", "Oliveira"],
+      ["Adil Rami", "Rami"],
+      ["Philippe Senderos", "Senderos"]
+    ],
+    "x3y2": [
+      ["Francis Coquelin", "Coquelin"],
+      ["Edu Gaspar", "Gaspar"],
+      ["Shkodran Mustafi", "Mustafi"],
+      ["Gabriel Paulista", "Paulista"],
+      ["Mathew Ryan", "Ryan"],
+      ["Stefan Schwarz", "Schwarz"],
+      ["Philippe Senderos", "Senderos"]
+    ],
+    "x1y3": [
+      ["Bodo Illgner", "Illgner"],
+      ["Sami Khedira", "Khedira"],
+      ["Toni Kroos", "Kroos"],
+      ["Christoph Metzelder", "Metzelder"],
+      ["Babett Peter", "Peter"],
+      ["Antonio Rüdiger", "Rudiger"],
+      ["Bernd Schuster", "Schuster"],
+      ["Mesut Ozil", "Ozil"]
+    ],
+    "x2y3": [
+      ["Oliver Bierhoff", "Bierhoff"],
+      ["Merle Kirschstein", "Kirschstein"],
+      ["Jens Lehmann", "Lehmann"],
+      ["Jan-Carlo Simic", "Simic"],
+      ["Julia Simic", "Simic"],
+      ["Malick Thiaw", "Thiaw"],
+      ["Christian Ziege", "Ziege"]
+  ],
+  "x3y3": [
+      ["Serge Gnabry", "Gnabry"],
+      ["Kai Havertz", "Havertz"],
+      ["Josephine Henning", "Henning"],
+      ["Tabea Kemme", "Kemme"],
+      ["Jens Lehmann", "Lehmann"],
+      ["Bernd Leno", "Leno"],
+      ["Leonie Maier", "Maier"],
+      ["Stefan Malz", "Malz"],
+      ["Per Mertesacker", "Mertesacker"],
+      ["Shkodran Mustafi", "Mustafi"],
+      ["Lukas Podolski", "Podolski"],
+      ["Gedion Zelalem", "Zelalem"],
+      ["Mesut Ozil", "Ozil"]
+  ]
+  }
+}

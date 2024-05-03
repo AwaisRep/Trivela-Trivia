@@ -1,0 +1,99 @@
+{
+  "clubs": {
+    "x1": "Bayern Munich",
+    "x2": "Paris Saint-Germain",
+    "x3": "Borussia Dortmund",
+    "y1": "Manchester City",
+    "y2": "Inter Milan",
+    "y3": "AS Roma"
+  },
+  "answers": {
+    "x1y1": [
+      ["Jerome Boateng", "Boateng"],
+      ["Joao Cancelo", "Cancelo"],
+      ["Martin Demichelis", "Demichelis"],
+      ["Dietmar Hamann", "Hamann"],
+      ["Owen Hargreaves", "Hargreaves"],
+      ["Roque Santa Cruz", "Santa Cruz"],
+      ["Leroy Sane", "Sane"],
+      ["Michael Tarnat", "Tarnat"],
+      ["Daniel Van Buyten", "Van Buyten"]
+    ],
+    "x2y1": [
+      ["Nicolas Anelka", "Anelka"],
+      ["Djamel Belmadi", "Belmadi"],
+      ["Ali Benarbia", "Benarbia"],
+      ["Sylvain Distin", "Distin"],
+      ["Alioune Toure", "Toure"],
+      ["George Weah", "Weah"]
+    ],
+    "x3y1": [
+      ["Manuel Akanji", "Akanji"],
+      ["Sergio Gomez", "Gomez"],
+      ["Ilkay Gundogan", "Gundogan"],
+      ["Erling Haaland", "Haaland"],
+      ["Niclas Jensen", "Jensen"],
+      ["Steffen Karl", "Karl"],
+      ["Felix Nmecha", "Nmecha"]
+    ],
+    "x1y2": [
+      ["Joao Cancelo", "Cancelo"],
+      ["Philippe Coutinho", "Coutinho"],
+      ["Jurgen Klinsmann", "Klinsmann"],
+      ["Lucio", "Lucio"],
+      ["Lothar Matthaus", "Matthaus"],
+      ["Benjamin Pavard", "Pavard"],
+      ["Ivan Perisic", "Perisic"],
+      ["Lukas Podolski", "Podolski"],
+      ["Ciriaco Sforza", "Sforza"],
+      ["Xherdan Shaqiri", "Shaqiri"],
+      ["Yann Sommer", "Sommer"],
+      ["Arturo Vidal", "Vidal"]
+    ],
+    "x2y2": [
+      ["Benoit Cauet", "Cauet"],
+      ["Youri Djorkaeff", "Djorkaeff"],
+      ["Achraf Hakimi", "Hakimi"],
+      ["Zlatan Ibrahimovic", "Ibrahimovic"],
+      ["Mauro Icardi", "Icardi"],
+      ["Maxwell", "Maxwell"],
+      ["Thiago Motta", "Motta"],
+      ["Rafinha", "Rafinha"],
+      ["Vampeta", "Vampeta"],
+      ["Milan Skriniar", "Skriniar"]
+    ],
+    "x3y2": [
+      ["Achraf Hakimi", "Hakimi"],
+      ["Henrikh Mkhitaryan", "Mkhitaryan"],
+      ["Ivan Perisic", "Perisic"],
+      ["Matthias Sammer", "Sammer"],
+      ["Ruben Sosa", "Sosa"],
+      ["Paulo Sousa", "Sousa"]
+    ],
+    "x1y3": [
+      ["Medhi Benatia", "Benatia"],
+      ["Thomas Berthold", "Berthold"],
+      ["Samuel Kuffour", "Kuffour"],
+      ["Ruggiero Rizzitelli", "Rizzitelli"],
+      ["Renato Sanches", "Sanches"],
+      ["Paulo Sergio", "Sergio"],
+      ["Luca Toni", "Toni"]
+    ],
+    "x2y3": [
+      ["Lucas Digne", "Digne"],
+      ["Alessandro Florenzi", "Florenzi"],
+      ["Ludovic Giuly", "Giuly"],
+      ["Gabriel Heinze", "Heinze"],
+      ["Marquinhos", "Marquinhos"],
+      ["Jeremy Menez", "Menez"],
+      ["Leandro Paredes", "Paredes"],
+      ["Javier Pastore", "Pastore"],
+      ["Renato Sanches", "Sanches"],
+      ["Georginio Wijnaldum", "Wijnaldum"]
+    ],
+    "x3y3": [
+      ["Thomas Hassler", "Hassler"],
+      ["Henrikh Mkhitaryan", "Mkhitaryan"]
+    ]
+  }
+}

@@ -1,0 +1,98 @@
+{
+    "clubs": {
+      "x1": "West Ham United",
+      "x2": "Spain",
+      "x3": "AFC Ajax",
+      "y1": "Chelsea FC",
+      "y2": "Juventus FC",
+      "y3": "Bayer 04 Leverkusen"
+    },
+    "answers": {
+      "x1y1": [
+        ["Demba Ba"],
+        ["Tal Ben Haim"],
+        ["Yossi Benayoun", "Benayoun"],
+        ["Wayne Bridge"],
+        ["Carlton Cole"],
+        ["Joe Cole"],
+        ["Craig Forrest", "Forrest"],
+        ["Jon Harley"],
+        ["Glen Johnson"],
+        ["Frank Lampard", "Lampard"],
+        ["Scott Minto"],
+        ["Victor Moses", "Moses"],
+        ["Emerson Palmieri", "Emerson"],
+        ["Scott Parker"],
+        ["Ian Pearce"],
+        ["Kurt Zouma", "Zouma"]
+      ],
+      "x2y1": [
+        ["Marcos Alonso", "Alonso"],
+        ["Kepa Arrizabalaga", "Kepa"],
+        ["Cesar Azpilicueta", "Azpilicueta"],
+        ["Diego Costa", "Costa"],
+        ["Marc Cucurella", "Cucurella"],
+        ["Albert Ferrer", "Ferrer"],
+        ["Cesc Fabregas", "Fabregas"],
+        ["Enrique de Lucas", "de Lucas"],
+        ["Juan Mata", "Mata"],
+        ["Alvaro Morata", "Morata"],
+        ["Pedro", "Pedro Rodriguez"],
+        ["Oriol Romeu", "Romeu"],
+        ["Robert Sanchez", "Sanchez"],
+        ["Fernando Torres", "Torres"],
+        ["Asier del Horno", "del Horno"],
+        ["Saul Niguez", "Saul"]
+      ],
+      "x3y1": [
+        ["Winston Bogarde", "Bogarde"],
+        ["Jesper Gronkjaer", "Gronkjaer"],
+        ["Brian Laudrup", "Laudrup"],
+        ["Mario Melchiot", "Melchiot"],
+        ["Bertrand Traore", "Traore"],
+        ["Hakim Ziyech", "Ziyech"]
+      ],
+      "x1y2": [
+        ["Marco Borriello", "Borriello"],
+        ["Paolo Di Canio", "Di Canio"],
+        ["Patrice Evra", "Evra"],
+        ["Antonio Nocerino", "Nocerino"],
+        ["Angelo Ogbonna", "Ogbonna"],
+        ["Carlos Tevez", "Tevez"],
+        ["Simone Zaza", "Zaza"]
+      ],
+      "x2y2": [
+        ["Dean Huijsen", "Huijsen"],
+        ["Fernando Llorente", "Llorente"],
+        ["Alvaro Morata", "Morata"],
+        ["Pablo Moreno", "Moreno"]
+      ],
+      "x3y2": [
+        ["Edgar Davids", "Davids"],
+        ["Zdenek Grygera", "Grygera"],
+        ["Zlatan Ibrahimovic", "Ibrahimovic"],
+        ["Michael Laudrup", "Laudrup"],
+        ["Matthijs de Ligt", "de Ligt"],
+        ["Arkadiusz Milik", "Milik"],
+        ["Sunday Oliseh", "Oliseh"],
+        ["Christian Poulsen", "Poulsen"],
+        ["Edwin van der Sar", "van der Sar"]
+      ],
+      "x1y3": [
+        ["Javier Hernandez", "Hernandez", "Chicharito"]
+      ],
+      "x2y3": [
+        ["Iker Bravo"],
+        ["Dani Carvajal", "Carvajal"],
+        ["Alex Grimaldo", "Grimaldo"],
+        ["Borja Iglesias", "Iglesias"]
+      ],
+      "x3y3": [
+        ["Mitchel Bakker", "Bakker"],
+        ["Dmitri Bulykin", "Bulykin"],
+        ["Angelos Charisteas", "Charisteas"],
+        ["Arkadiusz Milik", "Milik"],
+        ["Daley Sinkgraven", "Sinkgraven"]
+      ]
+    }
+  }  
