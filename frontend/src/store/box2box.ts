@@ -20,7 +20,7 @@ export const useBoxToBoxStore = defineStore('box2box', {
     async fetchGames() {
       this.games = []; // Reset games before fetching new ones
       try {
-        const response = await fetch('http://localhost:8000/box2box/game', {
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/box2box/game`, {
           method: 'GET',
           credentials: 'include'
         });

@@ -39,7 +39,7 @@ export const useAuthStore = defineStore('auth', {
     // Checking if the user is logged in using fetch
     async checkAuthenticationStatus() {
       try {
-        const response = await fetch('http://localhost:8000/check_auth/', {
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/check_auth/`, {
           method: 'GET',
           credentials: 'include',
           headers: {
@@ -70,7 +70,7 @@ export const useAuthStore = defineStore('auth', {
           return;
         }
 
-        const response = await fetch('http://localhost:8000/logout/', {
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/logout/`, {
           method: 'POST',
           credentials: 'include',
           headers: {

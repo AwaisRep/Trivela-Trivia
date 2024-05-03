@@ -102,7 +102,7 @@ export default defineComponent({
 
     const fetchGameDetails = async () => {
       const gameID = route.path.split('/').pop() as string;
-      const url = `http://localhost:8000/box2box/game/${gameID}`;
+      const url = `${import.meta.env.VITE_API_BASE_URL}/box2box/game/${gameID}`;
       const csrfToken = document.cookie.split('; ').find(row => row.startsWith('csrftoken='))?.split('=')[1];
 
       const headers = new Headers({
@@ -134,7 +134,7 @@ export default defineComponent({
     const guess = async () => {
       const gameID = route.path.split('/').pop() as string;
       const guessValue = guessInput.value;
-      const url = `http://localhost:8000/box2box/guess/${gameID}`;
+      const url = `${import.meta.env.VITE_API_BASE_URL}/box2box/guess/${gameID}`;
       const csrfToken = document.cookie.split('; ').find(row => row.startsWith('csrftoken='))?.split('=')[1];
 
       const headers = new Headers({

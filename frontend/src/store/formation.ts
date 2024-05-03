@@ -20,7 +20,7 @@ export const useFormationsStore = defineStore('formations', {
     async fetchGames() {
       this.games = []; // Reset games before fetching new ones
       try {
-        const response = await fetch('http://localhost:8000/guess_the_side/game/', {
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/guess_the_side/game/`, {
           method: 'GET',
           credentials: 'include'
         });

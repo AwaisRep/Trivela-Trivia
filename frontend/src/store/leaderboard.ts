@@ -26,7 +26,7 @@ export const useLeaderboardStore = defineStore('leaderboard', {
   actions: {
     async fetchLeaderboard() {
       try {
-        const response = await fetch('http://localhost:8000/leaderboard', {
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/leaderboard`, {
           method: 'GET',
           credentials: 'include'
         });
