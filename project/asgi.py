@@ -16,7 +16,7 @@ from django.urls import path
 from api.consumers import MatchmakingConsumer, TriviaGameConsumer
 
 application = ProtocolTypeRouter({
-    "http": get_asgi_application(),
+    "https": get_asgi_application(),
     "websocket": AuthMiddlewareStack( # This sets the websocket middleware urls
         URLRouter([
             path('ws/matchmaking/', MatchmakingConsumer.as_asgi()),
