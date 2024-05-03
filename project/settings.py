@@ -36,7 +36,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -152,11 +152,11 @@ CHANNEL_LAYERS = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME'),  # Name of your database
-        'USER': os.environ.get('DB_USER'),  # Database user
-        'PASSWORD': os.environ.get('DB_PASSWORD'),  # Database password
-        'HOST': os.environ.get('DB_HOST'),  # Set to empty string for localhost
-        'PORT': os.environ.get('DB_PORT'),  # Set to empty string for default
+        'NAME': 'trivela_trivia',  # Name of your database
+        'USER': 'postgres',  # Database user
+        'PASSWORD': 'Awais2003!!?',  # Database password
+        'HOST': 'localhost',  # Set to empty string for localhost
+        'PORT': '5432',  # Set to empty string for default
     }
 }
 
