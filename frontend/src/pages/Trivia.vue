@@ -131,7 +131,7 @@ export default defineComponent({
       }
 
       // Open a new WebSocket connection for the game session
-      webSocket.value = new WebSocket('wss://${import.meta.env.VITE_API_BASE_DOMAIN}' + gameUrl);
+      webSocket.value = new WebSocket(`wss://${import.meta.env.VITE_API_BASE_DOMAIN}` + gameUrl);
 
       webSocket.value.onopen = () => {
         isConnected.value = true;
