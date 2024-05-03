@@ -38,7 +38,7 @@ const router = createRouter({
 });
 
 // This gurantees that the user is authenticated before accessing any route that requires authentication.
-router.beforeEach(async (to, from, next) => {
+router.beforeEach(async (to, _from, next) => {
   const authStore = useAuthStore();
   // Check if the route requires authentication through the meta value
   if (to.matched.some(record => record.meta.requiresAuth)) {
