@@ -77,7 +77,7 @@ export default defineComponent({
     // Function to manage WebSocket connection
     function setupWebSocket() {
       if (!webSocket.value || webSocket.value.readyState === WebSocket.CLOSED) { // Only proceed if websocket isn't active
-        webSocket.value = new WebSocket(`wss://${import.meta.env.VITE_API_BASE_DOMAIN}/ws/matchmaking/`);
+        webSocket.value = new WebSocket(`wss://localhost:8000/api/ws/matchmaking/`);
         webSocket.value.onopen = () => { // On open, set the connection status and display message
           isConnected.value = true;
           gameMessage.value = 'Connected! Waiting for an opponent...';
@@ -131,7 +131,7 @@ export default defineComponent({
       }
 
       // Open a new WebSocket connection for the game session
-      webSocket.value = new WebSocket(`wss://${import.meta.env.VITE_API_BASE_DOMAIN}` + gameUrl);
+      webSocket.value = new WebSocket(`wss://localhost:8000/api/` + gameUrl);
 
       webSocket.value.onopen = () => {
         isConnected.value = true;

@@ -20,8 +20,8 @@
 
         <router-link to="/landing" v-if="isAuthenticated" @click="logout" class="nav-button">Logout</router-link>
 
-        <button v-if="!isAuthenticated" class="nav-button" onclick="location.href='http\://localhost:8000/login'">Login</button>
-        <button v-if="!isAuthenticated" class="nav-button" onclick="location.href='http\://localhost:8000/signup'">Sign Up</button>
+        <button v-if="!isAuthenticated" class="nav-button" onclick="location.href='https://localhost:8000/api/login'">Login</button>
+        <button v-if="!isAuthenticated" class="nav-button" onclick="location.href='https://localhost:8000/api/signup'">Sign Up</button>
         </div>
       </nav>
 

@@ -93,7 +93,7 @@ export default defineComponent({
         // Fetch game details from the backend
         const fetchGameDetails = async () => {
             const gameID = route.path.split('/').pop() as string;
-            const url = `${import.meta.env.VITE_API_BASE_URL}/guess_the_side/game/${gameID}`;
+            const url = `https://localhost:8000/api/guess_the_side/game/${gameID}`;
             const csrfToken = document.cookie.split('; ').find(row => row.startsWith('csrftoken='))?.split('=')[1];
 
             const headers = new Headers({
@@ -127,7 +127,7 @@ export default defineComponent({
             if (gameDetails.value !== null) {
                 const gameID = gameDetails.value.session_id;
                 const guessValue = guessInput.value;
-                const url = `${import.meta.env.VITE_API_BASE_URL}/guess_the_side/guess/${gameID}`;
+                const url = `https://localhost:8000/api/guess_the_side/guess/${gameID}`;
                 const csrfToken = document.cookie.split('; ').find(row => row.startsWith('csrftoken='))?.split('=')[1];
 
                 const headers = new Headers({

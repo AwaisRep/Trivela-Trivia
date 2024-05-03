@@ -101,7 +101,7 @@ export default defineComponent({
     }
 
     try {
-      const response = await fetch('http://localhost:8000/users/', {
+      const response = await fetch('https://localhost:8000/api/users/', {
         method: 'POST',
         headers: {
           'X-Csrftoken': csrfToken,
