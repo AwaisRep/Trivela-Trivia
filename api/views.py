@@ -85,7 +85,7 @@ def custom_logout(request):
 
             logout(request)
 
-            return HttpResponseRedirect(settings.FRONTEND_URL + 'login/') # Redirect to the login page on success
+            return HttpResponseRedirect(settings.FRONTEND_URL + '/login/') # Redirect to the login page on success
 
     return HttpResponse("Method not allowed", status=405)
 
