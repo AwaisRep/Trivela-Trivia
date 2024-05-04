@@ -9,7 +9,7 @@ class ErrorHandlingMiddleware:
     def __call__(self, request):
         response = self.get_response(request)
         if isinstance(response, HttpResponseNotFound) and request.user.is_authenticated:
-            return redirect('landing_page')  # Redirect to landing page if the page does not exist
+            return redirect('landing')  # Redirect to landing page if the page does not exist
         elif isinstance(response, HttpResponseForbidden) and request.user.is_authenticated:
-            return redirect('landing_page')  # Redirect to landing page if they are not logged in
+            return redirect('landing')  # Redirect to landing page if they are not logged in
         return response
