@@ -1,4 +1,4 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse
 from django.conf import settings  # Importing settings so we can import the frontend environment variable
 
 class ErrorHandlingMiddleware:
@@ -11,7 +11,7 @@ class ErrorHandlingMiddleware:
         # Check if the request path is not already the landing, login or sign up page
         if request.path not in ['/landing', '/login', '/signup']:
             if response.status_code == 404 and request.user.is_authenticated:
-                return HttpResponseRedirect(settings.FRONTEND_URL + '/landing')  # Redirect to landing page if the page does not exist
+                return HttpResponse(status=418)  # Return a 418 status code if the page does not exist
             elif response.status_code == 403 and request.user.is_authenticated:
-                return HttpResponseRedirect(settings.FRONTEND_URL + '/landing')  # Redirect to landing page if they are not logged in
+                return HttpResponse(status=418)  # Return a 418 status code if they are not logged in
         return response
