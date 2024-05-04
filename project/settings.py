@@ -62,15 +62,15 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'corsheaders.middleware.CorsMiddleware',  # Moved CorsMiddleware up
+    'corsheaders.middleware.CorsMiddleware',  # CORS middleware for handling requests
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', # Whitenoise middleware for static files
     'api.middleware.ErrorHandlingMiddleware',  # Custom middleware for error handling
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # Moved WhiteNoiseMiddleware down
 ]
 
 
