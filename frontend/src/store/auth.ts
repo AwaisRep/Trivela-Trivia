@@ -39,7 +39,7 @@ export const useAuthStore = defineStore('auth', {
     // Checking if the user is logged in using fetch
     async checkAuthenticationStatus() {
       try {
-        const response = await fetch(`https://localhost:8000/api/check_auth/`, {
+        const response = await fetch(`https://trivela-trivia.onrender.com/check_auth/`, {
           method: 'GET',
           credentials: 'include',
           headers: {
@@ -70,7 +70,7 @@ export const useAuthStore = defineStore('auth', {
           return;
         }
 
-        const response = await fetch(`https://localhost:8000/api/logout/`, {
+        const response = await fetch(`https://trivela-trivia.onrender.com/logout/`, {
           method: 'POST',
           credentials: 'include',
           headers: {

@@ -20,7 +20,7 @@ export const useBoxToBoxStore = defineStore('box2box', {
     async fetchGames() {
       this.games = []; // Reset games before fetching new ones
       try {
-        const response = await fetch(`https://localhost:8000/api/box2box/game`, {
+        const response = await fetch(`https://trivela-trivia.onrender.com/box2box/game`, {
           method: 'GET',
           credentials: 'include'
         });

@@ -20,7 +20,7 @@ export const useFormationsStore = defineStore('formations', {
     async fetchGames() {
       this.games = []; // Reset games before fetching new ones
       try {
-        const response = await fetch(`https://localhost:8000/api/guess_the_side/game/`, {
+        const response = await fetch(`https://trivela-trivia.onrender.com/guess_the_side/game/`, {
           method: 'GET',
           credentials: 'include'
         });

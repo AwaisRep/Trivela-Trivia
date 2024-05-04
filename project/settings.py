@@ -81,26 +81,30 @@ CORS_ALLOW_METHODS = ['GET', 'POST', 'OPTIONS']
 CORS_ALLOW_HEADERS = ['Authorization', 'Content-Type', 'X-CSRFToken']
 CORS_ALLOW_CREDENTIALS = True
 
-CORS_ORIGIN_WHITELIST = [ # Local host urls
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ORIGIN_WHITELIST = [
     "http://localhost:8000",
     "http://localhost:5173",
     "http://127.0.0.1:8000",
     "http://127.0.0.1:5173",
+    "https://trivela-trivia.onrender.com"  # Custom url
 ]
-CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8000",
     "http://localhost:5173",
     "http://127.0.0.1:8000",
     "http://127.0.0.1:5173",
-    "https://trivela-trivia.onrender.com"
+    "https://trivela-trivia.onrender.com"  # Custom url
 ]
+
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:8000",
     "http://localhost:5173",
     "http://127.0.0.1:8000",
     "http://127.0.0.1:5173",
+    "https://trivela-trivia.onrender.com"  # Custom url
 ]
 
 FRONTEND_URL = os.getenv('FRONTEND_URL', 'http://localhost:8000/')

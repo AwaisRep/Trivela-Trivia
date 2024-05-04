@@ -82,7 +82,7 @@ export default defineComponent({
         // Fetch the details about the game such as clubs, guesses remaining etc using fetch asynchronously
         const fetchGameDetails = async () => {
             const gameID = route.path.split('/').pop() as string; // As previously mentioned we need route to pop the game id
-            const url = `https://localhost:8000/api/career_path/game/${gameID}`; // In development this is localhost
+            const url = `https://trivela-trivia.onrender.com/career_path/game/${gameID}`; // In development this is localhost
             const csrfToken = document.cookie.split('; ').find(row => row.startsWith('csrftoken='))?.split('=')[1];
 
             //CSRF token required for authorisation of session
@@ -118,7 +118,7 @@ export default defineComponent({
             if (gameDetails.value !== null) {
                 const gameID = gameDetails.value.session_id;
                 const guessValue = guessInput.value;
-                const url = `https://localhost:8000/api/career_path/guess/${gameID}`;
+                const url = `https://trivela-trivia.onrender.com/career_path/guess/${gameID}`;
                 const csrfToken = document.cookie.split('; ').find(row => row.startsWith('csrftoken='))?.split('=')[1];
 
                 const headers = new Headers({

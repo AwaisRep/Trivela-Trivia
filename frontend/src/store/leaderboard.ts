@@ -26,7 +26,7 @@ export const useLeaderboardStore = defineStore('leaderboard', {
   actions: {
     async fetchLeaderboard() {
       try {
-        const response = await fetch(`https://localhost:8000/api/leaderboard`, {
+        const response = await fetch(`https://trivela-trivia.onrender.com/leaderboard`, {
           method: 'GET',
           credentials: 'include'
         });

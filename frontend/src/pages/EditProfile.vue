@@ -101,7 +101,7 @@ export default defineComponent({
     }
 
     try {
-      const response = await fetch('https://localhost:8000/api/users/', {
+      const response = await fetch('https://trivela-trivia.onrender.com/users/', {
         method: 'POST',
         headers: {
           'X-Csrftoken': csrfToken,

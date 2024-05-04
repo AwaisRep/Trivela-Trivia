@@ -102,7 +102,7 @@ export default defineComponent({
 
     const fetchGameDetails = async () => {
       const gameID = route.path.split('/').pop() as string;
-      const url = `https://localhost:8000/api/box2box/game/${gameID}`;
+      const url = `https://trivela-trivia.onrender.com/box2box/game/${gameID}`;
       const csrfToken = document.cookie.split('; ').find(row => row.startsWith('csrftoken='))?.split('=')[1];
 
       const headers = new Headers({
@@ -134,7 +134,7 @@ export default defineComponent({
     const guess = async () => {
       const gameID = route.path.split('/').pop() as string;
       const guessValue = guessInput.value;
-      const url = `https://localhost:8000/api/box2box/guess/${gameID}`;
+      const url = `https://trivela-trivia.onrender.com/box2box/guess/${gameID}`;
       const csrfToken = document.cookie.split('; ').find(row => row.startsWith('csrftoken='))?.split('=')[1];
 
       const headers = new Headers({
