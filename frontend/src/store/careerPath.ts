@@ -20,7 +20,7 @@ export const useCareerPathStore = defineStore('careerPath', {
     async fetchGames() {
       this.games = []; // Reset games before fetching new ones
       try {
-        const response = await fetch(`https://trivela-trivia.onrender.com/career_path/game`, {
+        const response = await fetch(`https://trivela-trivia.onrender.com/career_path/game/`, {
           method: 'GET',
           credentials: 'include'
         });
