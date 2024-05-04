@@ -8,8 +8,10 @@ class ErrorHandlingMiddleware:
 
     def __call__(self, request):
         response = self.get_response(request)
-        if response.status_code == 404 and request.user.is_authenticated:
-            return HttpResponseRedirect(settings.FRONTEND_URL + '/landing/')  # Redirect to landing page if the page does not exist
-        elif response.status_code == 403 and request.user.is_authenticated:
-            return HttpResponseRedirect(settings.FRONTEND_URL + '/landing/')  # Redirect to landing page if they are not logged in
+        # Check if the request path is not already the landing, login or sign up page
+        if request.path not in ['/landing', '/login', '/signup']:
+            if response.status_code == 404 and request.user.is_authenticated:
+                return HttpResponseRedirect(settings.FRONTEND_URL + '/landing')  # Redirect to landing page if the page does not exist
+            elif response.status_code == 403 and request.user.is_authenticated:
+                return HttpResponseRedirect(settings.FRONTEND_URL + '/landing')  # Redirect to landing page if they are not logged in
         return response
