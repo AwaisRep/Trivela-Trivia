@@ -14,7 +14,7 @@ app_name = 'api'
 router = DefaultRouter()
 router.register(r'check_auth', UserProfileHistoryView, basename='check_auth')
 router.register(r'users', views.UserViewSet, basename='users')
-admin_url = os.getenv('admin_url', 'admin/') # Holds the environment variable for the admin url
+admin_url = os.getenv('SUPERUSER_URL', 'admin/') # Holds the environment variable for the admin url
 
 urlpatterns = [
     path('', main_spa),
