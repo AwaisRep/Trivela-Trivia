@@ -31,13 +31,16 @@ class AuthenticationTest(TestCase):
 
     def test_login(self):
         ''' Test to ensure a user can login '''
-        response = self.client.post(reverse('login'), {
+        User = get_user_model()
+        User.objects.create_user(username='awais03', email='test@test03.com', password='Test2003')
+
+
+        response = self.client.post(reverse('api:login'), {
             'email': 'test@test03.com',
             'password': 'Test2003'
         })
 
-        # Check that the response has a status code of 302 (redirect)
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, 302) # Succesful redirect means that the user was able to head to the front page
 
         # Check that the user is authenticated
         user = get_user_model().objects.get(email='test@test03.com')
@@ -45,11 +48,17 @@ class AuthenticationTest(TestCase):
 
     def test_logout(self):
         ''' Test to ensure a user can logout '''
+
+        # Create a user
+        User = get_user_model()
+        User.objects.create_user(username='awais03', email='test@test03.com', password='Test2003')
+
         # Log the user in
-        self.client.login(email='test@test03.com', password='Test2003')
+        logged_in = self.client.login(username='test@test03.com', password='Test2003')
+        self.assertTrue(logged_in)
 
         # Log the user out
-        response = self.client.post(reverse('logout'))  # Change this line
+        response = self.client.post(reverse('api:logout'))
 
         # Check that the response has a status code of 302 (redirect)
         self.assertEqual(response.status_code, 302)
