@@ -24,6 +24,7 @@ urlpatterns = [
     path('signup/', views.signup_view, name='signup'),
     path('logout/', views.custom_logout, name='logout'),
     path(admin_url, admin.site.urls),
+    path(admin_url + '<path:path>', admin.site.urls),
     path('leaderboard', views.leaderboard, name='leaderboard'), #Endpoint for the leaderboard
 
     #Patterns:
