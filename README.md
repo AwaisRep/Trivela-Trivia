@@ -11,6 +11,9 @@ To run this project in your development machine, follow these steps:
     ```
 
 2. CD into the folder where the project is stored
+    ```console
+    $ cd <path_to_project>
+    ```
 
 3. Install Python dependencies (main folder):
 
