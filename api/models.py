@@ -308,3 +308,8 @@ class FormationBank(models.Model):
 
     def __str__(self):
         return f"{self.club} - {self.player_names}"
+    
+class DataLoadStatus(models.Model):
+    ''' Simple model to determine whether the initial data required for the games has been read. 
+    The loaddata function should only ever run once to populate the database with the required data '''
+    data_loaded = models.BooleanField(default=False)
