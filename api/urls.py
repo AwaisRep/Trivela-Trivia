@@ -42,6 +42,9 @@ urlpatterns = [
     path('guess_the_side/game/', GuessTheSideView.as_view(), name='gts_get_game'),
     path('guess_the_side/game/<int:game_id>', GuessTheSideView.as_view(), name='gts_game'),
     path('guess_the_side/guess/<int:session_id>', GuessTheSideView.as_view(), name='gts_guess'),
+
+    # VUE PATHS THAT CANNOT BE MATCHED
+    path('<path:path>', main_spa)
 ]
 
 
