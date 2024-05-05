@@ -24,7 +24,6 @@ urlpatterns = [
     path('signup/', views.signup_view, name='signup'),
     path('logout/', views.custom_logout, name='logout'),
     path(admin_url, admin.site.urls),
-    path(admin_url + '<path:path>', admin.site.urls),
     path('leaderboard', views.leaderboard, name='leaderboard'), #Endpoint for the leaderboard
 
     #Patterns:
@@ -44,9 +43,14 @@ urlpatterns = [
     path('guess_the_side/game/', GuessTheSideView.as_view(), name='gts_get_game'),
     path('guess_the_side/game/<int:game_id>', GuessTheSideView.as_view(), name='gts_game'),
     path('guess_the_side/guess/<int:session_id>', GuessTheSideView.as_view(), name='gts_guess'),
+]
 
-    # VUE PATHS THAT CANNOT BE MATCHED
+vue_urls = [
     path('<path:path>', TemplateView.as_view(template_name='api/spa/index.html')),
+]
+
+urlpatterns += [
+    path('', include(vue_urls)),
 ]
 
 
