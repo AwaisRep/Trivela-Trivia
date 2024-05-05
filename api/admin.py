@@ -49,8 +49,8 @@ class FormationBankAdmin(admin.ModelAdmin):
 
 class DataLoadStatusAdmin(admin.ModelAdmin):
     ''' Custom admin for the DataLoadStatus model '''
-    list_display = ('data_load_status',)
-    search_fields = ('data_load_status',)
+    list_display = ('data_loaded',)
+    search_fields = ('data_loaded',)
 
 admin.site.register(User, CustomUserAdmin)  # Register models with the custom admin site
 admin.site.register(TriviaBank, TriviaBankAdmin)
