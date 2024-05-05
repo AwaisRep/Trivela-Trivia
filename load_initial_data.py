@@ -15,7 +15,7 @@ logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 if not DataLoadStatus.objects.exists(): # Make sure data has not been loaded before
     try:
         # Get a list of all JSON files in the bank_data directory
-        json_files = glob.glob('bank_data/*.json')
+        json_files = sorted(glob.glob('bank_data/*.json'))
 
         # Run loaddata command for each file
         for file in json_files:
