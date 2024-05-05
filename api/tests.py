@@ -49,19 +49,13 @@ class AuthenticationTest(TestCase):
     def test_logout(self):
         ''' Test to ensure a user can logout '''
 
-        # Create a user
         User = get_user_model()
-        User.objects.create_user(username='awais03', email='test@test03.com', password='Test2003')
+        User.objects.create_user(username='awais03', email='test@test03.com', password='Test2003') # Create a user
 
-        # Log the user in
-        logged_in = self.client.login(username='test@test03.com', password='Test2003')
+        logged_in = self.client.login(username='test@test03.com', password='Test2003') # Log the user in
         self.assertTrue(logged_in)
 
-        # Log the user out
-        response = self.client.post(reverse('api:logout'))
+        response = self.client.post(reverse('api:logout')) # Log the user out
 
-        # Check that the response has a status code of 302 (redirect)
-        self.assertEqual(response.status_code, 302)
-
-        # Check that the user is not authenticated
-        self.assertNotIn('_auth_user_id', self.client.session)
+        self.assertEqual(response.status_code, 302) # Check that the response has a status code of 302 (redirect)
+        self.assertNotIn('_auth_user_id', self.client.session) # Check that the user is not authenticated

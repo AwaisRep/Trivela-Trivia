@@ -81,7 +81,7 @@ def custom_logout(request):
 
             logout(request)
 
-            return HttpResponseRedirect('/login/') # Redirect to the login page on success
+            return HttpResponseRedirect(reverse('api:login'))
 
     return HttpResponse("Method not allowed", status=405)
 
