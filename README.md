@@ -71,7 +71,7 @@ To run this project in your development machine, follow these steps:
    $ python create_superuser.py
    ```
 
-   The admin panel will be available based on the environment variable you set in step 
+   The admin panel will be available based on the environment variable you set in step 5
 
 8. Create a development database:
 
