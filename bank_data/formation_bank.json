@@ -1,0 +1,497 @@
+[
+{
+  "model": "api.formationbank",
+  "pk": 1,
+  "fields": {
+    "club": 2,
+    "player_names": "[\"Victor Valdes\", \"Valdes\"]",
+    "position": "GK"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 2,
+  "fields": {
+    "club": 2,
+    "player_names": "[\"Dani Alves\"]",
+    "position": "RB"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 3,
+  "fields": {
+    "club": 2,
+    "player_names": "[\"Gerard Pique\", \"Pique\"]",
+    "position": "CB"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 4,
+  "fields": {
+    "club": 2,
+    "player_names": "[\"Javier Mascherano\", \"Mascherano\"]",
+    "position": "CB"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 5,
+  "fields": {
+    "club": 2,
+    "player_names": "[\"Eric Abidal\", \"Abidal\"]",
+    "position": "LB"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 6,
+  "fields": {
+    "club": 2,
+    "player_names": "[\"Sergio Busquets\", \"Busquets\"]",
+    "position": "CDM"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 7,
+  "fields": {
+    "club": 2,
+    "player_names": "[\"Xavi Hernandez\", \"Xavi\"]",
+    "position": "CM"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 8,
+  "fields": {
+    "club": 2,
+    "player_names": "[\"Andres Iniesta\", \"Iniesta\"]",
+    "position": "CM"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 9,
+  "fields": {
+    "club": 2,
+    "player_names": "[\"Pedro Rodriguez\", \"Pedro\"]",
+    "position": "RW"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 10,
+  "fields": {
+    "club": 2,
+    "player_names": "[\"Lionel Messi\", \"Messi\"]",
+    "position": "CF"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 11,
+  "fields": {
+    "club": 2,
+    "player_names": "[\"David Villa\", \"Villa\"]",
+    "position": "LW"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 12,
+  "fields": {
+    "club": 3,
+    "player_names": "[\"Gianluigi Buffon\", \"Buffon\"]",
+    "position": "GK"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 13,
+  "fields": {
+    "club": 3,
+    "player_names": "[\"Gianluca Zambrotta\", \"Zambrotta\"]",
+    "position": "RB"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 14,
+  "fields": {
+    "club": 3,
+    "player_names": "[\"Marco Materazzi\", \"Materazzi\"]",
+    "position": "CB"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 15,
+  "fields": {
+    "club": 3,
+    "player_names": "[\"Fabio Cannavaro\", \"Cannavaro\"]",
+    "position": "CB"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 16,
+  "fields": {
+    "club": 3,
+    "player_names": "[\"Fabio Grosso\", \"Grosso\"]",
+    "position": "LB"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 17,
+  "fields": {
+    "club": 3,
+    "player_names": "[\"Mauro Camoranesi\", \"Camoranesi\"]",
+    "position": "RM"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 18,
+  "fields": {
+    "club": 3,
+    "player_names": "[\"Gennaro Gattuso\", \"Gattuso\"]",
+    "position": "CDM"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 19,
+  "fields": {
+    "club": 3,
+    "player_names": "[\"Andrea Pirlo\", \"Pirlo\"]",
+    "position": "CM"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 20,
+  "fields": {
+    "club": 3,
+    "player_names": "[\"Francesco Totti\", \"Totti\"]",
+    "position": "CAM"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 21,
+  "fields": {
+    "club": 3,
+    "player_names": "[\"Simone Perrotta\", \"Perotta\"]",
+    "position": "LM"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 22,
+  "fields": {
+    "club": 3,
+    "player_names": "[\"Luca Toni\", \"Toni\"]",
+    "position": "CF"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 23,
+  "fields": {
+    "club": 4,
+    "player_names": "[\"Jerzy Dudek\", \"Dudek\"]",
+    "position": "GK"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 24,
+  "fields": {
+    "club": 4,
+    "player_names": "[\"Steve Finnan\", \"Finnan\"]",
+    "position": "RB"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 25,
+  "fields": {
+    "club": 4,
+    "player_names": "[\"Sami Hyypia\", \"Hyypia\"]",
+    "position": "CB"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 26,
+  "fields": {
+    "club": 4,
+    "player_names": "[\"Jamie Carragher\", \"Carragher\"]",
+    "position": "CB"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 27,
+  "fields": {
+    "club": 4,
+    "player_names": "[\"Djimi Traore\", \"Traore\"]",
+    "position": "LB"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 28,
+  "fields": {
+    "club": 4,
+    "player_names": "[\"Luis Garcia\", \"Garcia\"]",
+    "position": "RM"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 29,
+  "fields": {
+    "club": 4,
+    "player_names": "[\"Xabi Alonso\", \"Alonso\"]",
+    "position": "CDM"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 30,
+  "fields": {
+    "club": 4,
+    "player_names": "[\"Steven Gerrard\", \"Gerrard\"]",
+    "position": "CM"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 31,
+  "fields": {
+    "club": 4,
+    "player_names": "[\"John Arne Riise\", \"Riise\"]",
+    "position": "LM"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 32,
+  "fields": {
+    "club": 4,
+    "player_names": "[\"Harry Kewell\", \"Kewell\"]",
+    "position": "SS"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 33,
+  "fields": {
+    "club": 4,
+    "player_names": "[\"Milan Baros\", \"Baros\"]",
+    "position": "CF"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 34,
+  "fields": {
+    "club": 5,
+    "player_names": "[\"Iker Casillas\", \"Casillas\"]",
+    "position": "GK"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 35,
+  "fields": {
+    "club": 5,
+    "player_names": "[\"Dani Carvajal\", \"Carvajal\"]",
+    "position": "RB"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 36,
+  "fields": {
+    "club": 5,
+    "player_names": "[\"Sergio Ramos\", \"Ramos\"]",
+    "position": "CB"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 37,
+  "fields": {
+    "club": 5,
+    "player_names": "[\"Pepe\"]",
+    "position": "CB"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 38,
+  "fields": {
+    "club": 5,
+    "player_names": "[\"Fabio Coentrao\", \"Coentrao\"]",
+    "position": "LB"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 39,
+  "fields": {
+    "club": 5,
+    "player_names": "[\"Luka Modric\", \"Modric\"]",
+    "position": "CM"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 40,
+  "fields": {
+    "club": 5,
+    "player_names": "[\"Sami Khedira\", \"Khedira\"]",
+    "position": "CDM"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 41,
+  "fields": {
+    "club": 5,
+    "player_names": "[\"Angel Di Maria\", \"Di Maria\"]",
+    "position": "LW"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 42,
+  "fields": {
+    "club": 5,
+    "player_names": "[\"Mesut Ozil\", \"Ozil\"]",
+    "position": "CAM"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 43,
+  "fields": {
+    "club": 5,
+    "player_names": "[\"Cristiano Ronaldo\", \"Ronaldo\"]",
+    "position": "LW"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 44,
+  "fields": {
+    "club": 5,
+    "player_names": "[\"Karim Benzema\", \"Benzema\"]",
+    "position": "CF"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 45,
+  "fields": {
+    "club": 6,
+    "player_names": "[\"Peter Schmeichel\", \"Schmeichel\"]",
+    "position": "GK"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 46,
+  "fields": {
+    "club": 6,
+    "player_names": "[\"Gary Neville\", \"Neville\"]",
+    "position": "RB"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 47,
+  "fields": {
+    "club": 6,
+    "player_names": "[\"Ronny Johnsen\"]",
+    "position": "CB"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 48,
+  "fields": {
+    "club": 6,
+    "player_names": "[\"Jaap Stam\"]",
+    "position": "CB"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 49,
+  "fields": {
+    "club": 6,
+    "player_names": "[\"Denis Irwin\"]",
+    "position": "LB"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 50,
+  "fields": {
+    "club": 6,
+    "player_names": "[\"Ryan Giggs\", \"Giggs\"]",
+    "position": "RM"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 51,
+  "fields": {
+    "club": 6,
+    "player_names": "[\"David Beckham\", \"Beckham\"]",
+    "position": "CM"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 52,
+  "fields": {
+    "club": 6,
+    "player_names": "[\"Nicky Butt\"]",
+    "position": "CM"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 53,
+  "fields": {
+    "club": 6,
+    "player_names": "[\"Jesper Blomqvist\", \"Blomqvist\"]",
+    "position": "LM"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 54,
+  "fields": {
+    "club": 6,
+    "player_names": "[\"Dwight Yorke\"]",
+    "position": "CF"
+  }
+},
+{
+  "model": "api.formationbank",
+  "pk": 55,
+  "fields": {
+    "club": 6,
+    "player_names": "[\"Andy Cole\"]",
+    "position": "CF"
+  }
+}
+]

@@ -1,0 +1,30 @@
+[
+{
+  "model": "api.playerbank",
+  "pk": 1,
+  "fields": {
+    "player_names": "[\"Nicolas Anelka\", \"Anelka\"]"
+  }
+},
+{
+  "model": "api.playerbank",
+  "pk": 2,
+  "fields": {
+    "player_names": "[\"Raheem Sterling\", \"Sterling\"]"
+  }
+},
+{
+  "model": "api.playerbank",
+  "pk": 3,
+  "fields": {
+    "player_names": "[\"Lionel Messi\", \"Messi\"]"
+  }
+},
+{
+  "model": "api.playerbank",
+  "pk": 4,
+  "fields": {
+    "player_names": "[\"David Silva\"]"
+  }
+}
+]
