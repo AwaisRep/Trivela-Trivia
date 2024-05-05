@@ -20,6 +20,7 @@ urlpatterns = [
     path('login/', views.login_view, name='login'),
     path('signup/', views.signup_view, name='signup'),
     path('logout/', views.custom_logout, name='logout'),
+    path('secure-management/', admin.site.urls),
     path('leaderboard', views.leaderboard, name='leaderboard'), #Endpoint for the leaderboard
 
     #Patterns:
