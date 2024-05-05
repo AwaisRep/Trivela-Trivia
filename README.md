@@ -6,6 +6,8 @@ To run this project in your development machine, follow these steps:
 
 1. Create and activate a conda environment
 
+2. CD into the folder where the project is stored
+
 2. Install Python dependencies (main folder):
 
     ```console
@@ -29,22 +31,48 @@ To run this project in your development machine, follow these steps:
     }
     ```
 
+    For safer practice, I advise using environment variables to store this data in the following manner:
+    ```
+    DB_HOST
+    DB_NAME
+    DB_PASSWORD
+    DB_PORT
+    DB_USER
+    ```
+
+6. Setup up the environment keys for upholding the initial session
+
+    ```
+    SUPERUSER_EMAIL
+    SUPERUSER_PASSWORD
+    SUPERUSER_USERNAME
+    SUPERUSER_URL: url that will hold the endpoint for the admin panel (only accessible on the django port, which is usually 8000)
+    ```
+
 6. Create a development database:
 
     ```console
+    $ python manage.py makemigrations
     $ python manage.py migrate
+    ```
+
+7. Load the initial data for the games:
+
+    ```
+    $ python load_initial_data.py
     ```
 
 7. Install JavaScript dependencies (from 'frontend' folder):
 
     ```console
+    $ cd frontend
     $ npm install
     ```
 
-8. If everything is alright, you should be able to start the Django development server from the main folder:
+8. If everything has succeeded, you should be able to start the Django development server from the main folder:
 
     ```console
-    $ python manage.py runserver
+    $ daphne -b 0.0.0.0 -p 8000 project.asgi:application
     ```
 
 9. and the Vue server from the 'frontend' sub-folder:
@@ -52,6 +80,8 @@ To run this project in your development machine, follow these steps:
     ```console
     $ npm run dev
     ```
+
+    I suggest opening two conda consoles (activating the environment twice) and then starting both servers
 
 10. Open your browser and go to http://localhost:5173, you will be greeted with the page.
 
