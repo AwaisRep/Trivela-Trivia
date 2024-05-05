@@ -26,6 +26,7 @@ To run this project in your development machine, follow these steps:
 5. Edit the django settings.py file to add the new database:
 
     ```
+    *Edit the second value, if you don't intend to use environment variables*
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
@@ -54,6 +55,14 @@ To run this project in your development machine, follow these steps:
     SUPERUSER_PASSWORD
     SUPERUSER_USERNAME
     SUPERUSER_URL: url that will hold the endpoint for the admin panel (only accessible on the django port in dev, which is usually 8000)
+    ```
+
+    If you don't intend to use environment variables, then these values will hold the admin user:
+    ```
+    username = admin
+    email = admin@triveltrivia.com
+    password = Admin1234
+    admin_url = admin/ # Endpoint to access the admin panel on the django port
     ```
 
 7. Allow the superuser to be created
