@@ -1,3 +1,4 @@
+import os
 from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
@@ -13,6 +14,7 @@ app_name = 'api'
 router = DefaultRouter()
 router.register(r'check_auth', UserProfileHistoryView, basename='check_auth')
 router.register(r'users', views.UserViewSet, basename='users')
+admin_url = os.getenv('admin_url', 'admin/') # Holds the environment variable for the admin url
 
 urlpatterns = [
     path('', main_spa),
@@ -20,7 +22,7 @@ urlpatterns = [
     path('login/', views.login_view, name='login'),
     path('signup/', views.signup_view, name='signup'),
     path('logout/', views.custom_logout, name='logout'),
-    path('secure-management/', admin.site.urls),
+    path(admin_url, admin.site.urls),
     path('leaderboard', views.leaderboard, name='leaderboard'), #Endpoint for the leaderboard
 
     #Patterns:
