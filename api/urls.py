@@ -1,8 +1,8 @@
 import os
 from django.conf import settings
 from django.contrib import admin
-from django.urls import include, path
-from django.http import HttpResponse
+from django.urls import include, path, reverse
+from django.http import Http404
 from django.views.generic import TemplateView
 from django.conf.urls.static import static
 from rest_framework.routers import DefaultRouter
@@ -10,6 +10,19 @@ from rest_framework.routers import DefaultRouter
 from api import views
 from .views import main_spa, UserProfileHistoryView, BoxToBoxView, CareerPathView, GuessTheSideView
 app_name = 'api'
+
+class SPAView(TemplateView):
+    template_name = 'api/spa/index.html'
+
+    def get(self, request, *args, **kwargs):
+        path = kwargs['path']
+        admin_root = reverse('admin:index')  # Get admin root url
+
+        # Ensure this URL does not belong to the admin or any other Django-managed path.
+        if path.startswith(admin_root.strip('/')):
+            raise Http404("Page not found")  # This tells Django not to handle this with the SPA template
+
+        return super().get(request, *args, **kwargs)
 
 #Handles all the url's served by the rest framework
 router = DefaultRouter()
@@ -19,8 +32,6 @@ admin_url = os.getenv('SUPERUSER_URL', 'admin/') # Holds the environment variabl
 
 urlpatterns = [
     path(admin_url, admin.site.urls),
-    path(admin_url + '<path:extra>', admin.site.urls),
-
 
     path('', main_spa),
     path('', include(router.urls)),
@@ -48,7 +59,7 @@ urlpatterns = [
     path('guess_the_side/guess/<int:session_id>', GuessTheSideView.as_view(), name='gts_guess'),
 
     # VUE PATHS THAT CANNOT BE MATCHED
-    path('<path:path>', TemplateView.as_view(template_name='api/spa/index.html')),
+    path('<path:path>', SPAView.as_view()),
 ]
 
 
