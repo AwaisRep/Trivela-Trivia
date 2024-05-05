@@ -3,6 +3,7 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
 from django.http import HttpResponse
+from django.views.generic import TemplateView
 from django.conf.urls.static import static
 from rest_framework.routers import DefaultRouter
 
@@ -44,7 +45,7 @@ urlpatterns = [
     path('guess_the_side/guess/<int:session_id>', GuessTheSideView.as_view(), name='gts_guess'),
 
     # VUE PATHS THAT CANNOT BE MATCHED
-    path('<path:path>', main_spa)
+    path('<path:path>', TemplateView.as_view(template_name='api/spa/index.html')),
 ]
 
 
