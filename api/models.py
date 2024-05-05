@@ -127,7 +127,7 @@ class Trivia(models.Model):
 
     def __str__(self):
         ''' String representation of the game '''
-        return f"Game {self.id}: {self.player_one.username} vs {self.player_two.username if self.player_two else 'CPU'}"
+        return f"Game {self.gameID}: {self.player_one.username} vs {self.player_two.username if self.player_two else 'CPU'}"
 
     def finalize_game(self):
         ''' Finalise the game statistics once the game is over '''
@@ -277,7 +277,7 @@ class ClubBank(models.Model):
     description = models.CharField(max_length=250)
 
     def __str__(self):
-        return f"{self.team_name} - {self.description} - {self.season}" 
+        return f"{self.team_name} - {self.description}" 
 
 class PlayerBank(models.Model):
     ''' Model to store the player names for career path '''
