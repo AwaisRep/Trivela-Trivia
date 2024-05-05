@@ -131,7 +131,7 @@ export default defineComponent({
       }
 
       // Open a new WebSocket connection for the game session
-      webSocket.value = new WebSocket(`wss://trivela-trivia.onrender.com/` + gameUrl);
+      webSocket.value = new WebSocket(`wss://trivela-trivia.onrender.com` + gameUrl);
 
       webSocket.value.onopen = () => {
         isConnected.value = true;

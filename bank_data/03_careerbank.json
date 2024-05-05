@@ -1,0 +1,314 @@
+[
+{
+  "model": "api.careerbank",
+  "pk": 1,
+  "fields": {
+    "player": 1,
+    "team_name": "Paris Saint-Germain",
+    "appearances": 12,
+    "goals": 1,
+    "assists": 0,
+    "is_loan": false,
+    "season": "1996"
+  }
+},
+{
+  "model": "api.careerbank",
+  "pk": 2,
+  "fields": {
+    "player": 1,
+    "team_name": "Arsenal",
+    "appearances": 90,
+    "goals": 28,
+    "assists": 12,
+    "is_loan": false,
+    "season": "1997"
+  }
+},
+{
+  "model": "api.careerbank",
+  "pk": 3,
+  "fields": {
+    "player": 1,
+    "team_name": "Real Madrid",
+    "appearances": 33,
+    "goals": 7,
+    "assists": 6,
+    "is_loan": false,
+    "season": "1999"
+  }
+},
+{
+  "model": "api.careerbank",
+  "pk": 4,
+  "fields": {
+    "player": 1,
+    "team_name": "Paris Saint-Germain",
+    "appearances": 57,
+    "goals": 18,
+    "assists": 3,
+    "is_loan": false,
+    "season": "2000"
+  }
+},
+{
+  "model": "api.careerbank",
+  "pk": 5,
+  "fields": {
+    "player": 1,
+    "team_name": "Liverpool",
+    "appearances": 22,
+    "goals": 5,
+    "assists": 3,
+    "is_loan": true,
+    "season": "2001"
+  }
+},
+{
+  "model": "api.careerbank",
+  "pk": 6,
+  "fields": {
+    "player": 1,
+    "team_name": "Manchester City",
+    "appearances": 103,
+    "goals": 45,
+    "assists": 5,
+    "is_loan": false,
+    "season": "2002"
+  }
+},
+{
+  "model": "api.careerbank",
+  "pk": 7,
+  "fields": {
+    "player": 1,
+    "team_name": "Fenerbahce",
+    "appearances": 57,
+    "goals": 16,
+    "assists": 15,
+    "is_loan": false,
+    "season": "2005"
+  }
+},
+{
+  "model": "api.careerbank",
+  "pk": 8,
+  "fields": {
+    "player": 1,
+    "team_name": "Bolton Wanderers",
+    "appearances": 61,
+    "goals": 23,
+    "assists": 10,
+    "is_loan": false,
+    "season": "2006"
+  }
+},
+{
+  "model": "api.careerbank",
+  "pk": 9,
+  "fields": {
+    "player": 1,
+    "team_name": "Chelsea",
+    "appearances": 184,
+    "goals": 59,
+    "assists": 34,
+    "is_loan": false,
+    "season": "2008"
+  }
+},
+{
+  "model": "api.careerbank",
+  "pk": 10,
+  "fields": {
+    "player": 1,
+    "team_name": "Shanghai Shenhua",
+    "appearances": 23,
+    "goals": 3,
+    "assists": 6,
+    "is_loan": false,
+    "season": "2012"
+  }
+},
+{
+  "model": "api.careerbank",
+  "pk": 11,
+  "fields": {
+    "player": 1,
+    "team_name": "Juventus",
+    "appearances": 3,
+    "goals": 0,
+    "assists": 0,
+    "is_loan": true,
+    "season": "2013"
+  }
+},
+{
+  "model": "api.careerbank",
+  "pk": 12,
+  "fields": {
+    "player": 1,
+    "team_name": "West Bromwich Albion",
+    "appearances": 12,
+    "goals": 2,
+    "assists": 0,
+    "is_loan": false,
+    "season": "2013"
+  }
+},
+{
+  "model": "api.careerbank",
+  "pk": 13,
+  "fields": {
+    "player": 1,
+    "team_name": "Mumbai City",
+    "appearances": 13,
+    "goals": 2,
+    "assists": 0,
+    "is_loan": false,
+    "season": "2014"
+  }
+},
+{
+  "model": "api.careerbank",
+  "pk": 14,
+  "fields": {
+    "player": 2,
+    "team_name": "Liverpool",
+    "appearances": 129,
+    "goals": 23,
+    "assists": 23,
+    "is_loan": false,
+    "season": "2012"
+  }
+},
+{
+  "model": "api.careerbank",
+  "pk": 15,
+  "fields": {
+    "player": 2,
+    "team_name": "Man City",
+    "appearances": 339,
+    "goals": 131,
+    "assists": 73,
+    "is_loan": false,
+    "season": "2015"
+  }
+},
+{
+  "model": "api.careerbank",
+  "pk": 16,
+  "fields": {
+    "player": 2,
+    "team_name": "Chelsea",
+    "appearances": 75,
+    "goals": 17,
+    "assists": 12,
+    "is_loan": false,
+    "season": "2022"
+  }
+},
+{
+  "model": "api.careerbank",
+  "pk": 17,
+  "fields": {
+    "player": 3,
+    "team_name": "FC Barcelona",
+    "appearances": 778,
+    "goals": 672,
+    "assists": 303,
+    "is_loan": false,
+    "season": "2004"
+  }
+},
+{
+  "model": "api.careerbank",
+  "pk": 18,
+  "fields": {
+    "player": 3,
+    "team_name": "Paris Saint-Germain FC",
+    "appearances": 75,
+    "goals": 32,
+    "assists": 35,
+    "is_loan": false,
+    "season": "2021"
+  }
+},
+{
+  "model": "api.careerbank",
+  "pk": 19,
+  "fields": {
+    "player": 3,
+    "team_name": "Inter Miami CF",
+    "appearances": 24,
+    "goals": 22,
+    "assists": 11,
+    "is_loan": false,
+    "season": "2023"
+  }
+},
+{
+  "model": "api.careerbank",
+  "pk": 20,
+  "fields": {
+    "player": 4,
+    "team_name": "Valencia",
+    "appearances": 168,
+    "goals": 32,
+    "assists": 36,
+    "is_loan": false,
+    "season": "2004"
+  }
+},
+{
+  "model": "api.careerbank",
+  "pk": 21,
+  "fields": {
+    "player": 4,
+    "team_name": "Eibar",
+    "appearances": 11,
+    "goals": 1,
+    "assists": 0,
+    "is_loan": true,
+    "season": "2004"
+  }
+},
+{
+  "model": "api.careerbank",
+  "pk": 22,
+  "fields": {
+    "player": 4,
+    "team_name": "Celta De Vigo",
+    "appearances": 38,
+    "goals": 4,
+    "assists": 0,
+    "is_loan": true,
+    "season": "2005"
+  }
+},
+{
+  "model": "api.careerbank",
+  "pk": 23,
+  "fields": {
+    "player": 4,
+    "team_name": "Manchester City FC",
+    "appearances": 436,
+    "goals": 77,
+    "assists": 134,
+    "is_loan": false,
+    "season": "2010"
+  }
+},
+{
+  "model": "api.careerbank",
+  "pk": 24,
+  "fields": {
+    "player": 4,
+    "team_name": "Real Sociedad",
+    "appearances": 93,
+    "goals": 7,
+    "assists": 18,
+    "is_loan": false,
+    "season": "2020"
+  }
+}
+]

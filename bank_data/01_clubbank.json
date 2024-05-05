@@ -1,0 +1,42 @@
+[
+{
+  "model": "api.clubbank",
+  "pk": 2,
+  "fields": {
+    "team_name": "Barcelona",
+    "description": "In the 2011 UEFA Champions League Final, Barcelona defeated Manchester United 3-1, hailed for one of the greatest performances in a final, epitomizing their peak tiki-taka style."
+  }
+},
+{
+  "model": "api.clubbank",
+  "pk": 3,
+  "fields": {
+    "team_name": "Italy",
+    "description": "Italy won the 2006 World Cup Final against France in a penalty shootout after a 1-1 draw, remembered for Zidane's headbutt and Italy's fourth World Cup title."
+  }
+},
+{
+  "model": "api.clubbank",
+  "pk": 4,
+  "fields": {
+    "team_name": "Liverpool",
+    "description": "The 2005 UEFA Champions League Final, known as the 'Miracle of Istanbul,' saw Liverpool come back from a 3-0 halftime deficit to win their fifth European Cup after a penalty shootout against AC Milan."
+  }
+},
+{
+  "model": "api.clubbank",
+  "pk": 5,
+  "fields": {
+    "team_name": "Real Madrid",
+    "description": "Real Madrid secured 'La Decima', their tenth European title, by beating Atletico Madrid 4-1 in extra time in the 2014 UEFA Champions League Final."
+  }
+},
+{
+  "model": "api.clubbank",
+  "pk": 6,
+  "fields": {
+    "team_name": "Manchester United",
+    "description": "In the 1999 UEFA Champions League Final against Bayern Munich, Manchester United completed an astonishing comeback, scoring two goals in injury time to win 2-1, securing their treble-winning season."
+  }
+}
+]

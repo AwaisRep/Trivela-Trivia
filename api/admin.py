@@ -4,7 +4,7 @@ from django.urls import path
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.contrib import messages
-from .models import User, TriviaBank, ClubBank, PlayerBank, CareerBank, FormationBank, DataLoadStatus
+from .models import User, Trivia, TriviaBank, ClubBank, PlayerBank, CareerBank, FormationBank, DataLoadStatus
 from django.contrib.auth.admin import UserAdmin
 from django import forms
 import json
@@ -26,6 +26,11 @@ class CustomUserAdmin(UserAdmin):
     )
     search_fields = ('email',)
     ordering = ('email',)
+
+class TriviaAdmin(admin.ModelAdmin):
+    ''' Custom admin for the Trivia model '''
+    list_display = ('gameID', 'statistics_updated', 'player_one', 'player_two', 'is_active', 'score_playerOne', 'score_playerTwo')
+    search_fields = ('gameID', 'player_one', 'player_two')
 
 class TriviaBankAdmin(admin.ModelAdmin):
     ''' Custom admin for the TriviaBank model '''
@@ -58,6 +63,7 @@ class DataLoadStatusAdmin(admin.ModelAdmin):
     search_fields = ('data_loaded',)
 
 admin.site.register(User, CustomUserAdmin)  # Register models with the custom admin site
+admin.site.register(Trivia, TriviaAdmin)
 admin.site.register(TriviaBank, TriviaBankAdmin)
 admin.site.register(ClubBank, ClubBankAdmin)
 admin.site.register(PlayerBank, PlayerBankAdmin)
