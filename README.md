@@ -6,7 +6,7 @@ To run this project in your development machine, follow these steps:
 
 1. Create and activate a conda environment
     ```console
-    $ conda create <name>
+    $ conda create -n <name>
     $ conda activate <name>
     ```
 
