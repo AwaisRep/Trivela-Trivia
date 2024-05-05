@@ -35,7 +35,7 @@ class TriviaBankAdmin(admin.ModelAdmin):
 class ClubBankAdmin(admin.ModelAdmin):
     ''' Custom admin for the ClubBank model '''
     list_display = ('team_name', 'description')
-    search_fields = ('team_name')
+    search_fields = ('team_name',)
 
 class PlayerBankAdmin(admin.ModelAdmin):
     ''' Custom admin for the PlayerBank model '''
