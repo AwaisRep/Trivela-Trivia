@@ -26,7 +26,7 @@ To run this project in your development machine, follow these steps:
 5. Edit the django settings.py file to add the new database:
 
     ```
-    *Edit the second value, if you don't intend to use environment variables*
+    # Edit the second value, if you don't intend to use environment variables
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
