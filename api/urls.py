@@ -11,19 +11,6 @@ from api import views
 from .views import main_spa, UserProfileHistoryView, BoxToBoxView, CareerPathView, GuessTheSideView
 app_name = 'api'
 
-class SPAView(TemplateView):
-    template_name = 'api/spa/index.html'
-
-    def get(self, request, *args, **kwargs):
-        path = kwargs['path']
-        admin_root = reverse('admin:index')  # Get admin root url
-
-        # Ensure this URL does not belong to the admin or any other Django-managed path.
-        if path.startswith(admin_root.strip('/')):
-            raise Http404("Page not found")  # This tells Django not to handle this with the SPA template
-
-        return super().get(request, *args, **kwargs)
-
 #Handles all the url's served by the rest framework
 router = DefaultRouter()
 router.register(r'check_auth', UserProfileHistoryView, basename='check_auth')
@@ -57,9 +44,6 @@ urlpatterns = [
     path('guess_the_side/game/', GuessTheSideView.as_view(), name='gts_get_game'),
     path('guess_the_side/game/<int:game_id>', GuessTheSideView.as_view(), name='gts_game'),
     path('guess_the_side/guess/<int:session_id>', GuessTheSideView.as_view(), name='gts_guess'),
-
-    # VUE PATHS THAT CANNOT BE MATCHED
-    path('<path:path>', SPAView.as_view()),
 ]
 
 

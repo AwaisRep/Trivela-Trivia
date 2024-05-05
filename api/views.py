@@ -56,10 +56,8 @@ def login_view(request):
 
         form = loginForm(request.POST)
         if form.is_valid():
-
             email = form.cleaned_data['email']
             password = form.cleaned_data['password']
-
             user = authenticate(request, username=email, password=password)
 
             if user is not None:
@@ -68,9 +66,7 @@ def login_view(request):
             else:
                 # Add an error to the form
                 form.add_error(None, 'Invalid email or password')
-                return render(request, 'api/spa/api/auth/login.html', {'form': form})
-                
-
+                return render(request, 'api/spa/api/auth/login.html', {'form': form})     
     else:
         form = loginForm()
 
