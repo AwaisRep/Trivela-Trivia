@@ -1,13 +1,6 @@
 from django.contrib import admin
-from django.contrib.admin import AdminSite
-from django.urls import path
-from django.shortcuts import render
-from django.http import HttpResponseRedirect
-from django.contrib import messages
 from .models import User, Trivia, TriviaBank, ClubBank, PlayerBank, CareerBank, FormationBank, DataLoadStatus
 from django.contrib.auth.admin import UserAdmin
-from django import forms
-import json
 
 class CustomUserAdmin(UserAdmin):
     ''' Custom User Admin to inherit the user model '''

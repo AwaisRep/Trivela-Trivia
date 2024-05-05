@@ -54,7 +54,7 @@ export default defineComponent({
   setup() {
     // Pinia stores to use: One for authenticating users, the other to fetch leaderboard on game finish
     const authStore = useAuthStore();
-    const leaderoardStore = useLeaderboardStore();
+    const leaderboardStore = useLeaderboardStore();
 
     const webSocket = ref<WebSocket | null>(null); // Socket for maintaining connection to session
     const isConnected = ref(false); // Displays the template if the user is connected
@@ -142,11 +142,11 @@ export default defineComponent({
         const data = JSON.parse(event.data);
 
         // The game is over
-        if (data.game_result) {
+        if (data.game_over) {
           gameMessage.value = data.message;
           timeLeft.value = 0;
           authStore.checkAuthenticationStatus();
-          leaderoardStore.fetchLeaderboard();
+          leaderboardStore.fetchLeaderboard();
         }
         // Message is being received
         else if (data.message) {
@@ -155,9 +155,9 @@ export default defineComponent({
         // Check if a question is being received
         else if (data.question) {
           currentQuestion.value = {
-            id: data.question_id, // assuming the server sends the question id as 'question_id'
+            id: data.question_id,
             question: data.question,
-            index: data.index // assuming the server sends the question index as 'index'
+            index: data.index
           };
         }
         // Remaining time is being received
