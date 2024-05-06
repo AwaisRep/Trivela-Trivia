@@ -326,6 +326,10 @@ export default defineComponent({
     background: none;
   }
 
+  ul {
+    text-align: left;
+  }
+
   /* Custom toast styling */
   #toast {
     visibility: hidden;
