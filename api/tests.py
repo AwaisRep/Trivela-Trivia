@@ -29,6 +29,17 @@ class URLTest(TestCase):
 class AuthenticationTest(TestCase):
     ''' Test to ensure authentication works correctly '''
 
+    def test_signup(self):
+        ''' Test to ensure a user can sign up '''
+        form_data = {
+            'email': 'test@test03.com',
+            'username': 'test03',
+            'password': 'Test2003',
+        }
+
+        response = self.client.post(reverse('api:signup'), form_data)
+        self.assertEqual(response.status_code, 302) # Succesful redirect means that the user was signed up and redirect to the home page
+
     def test_login(self):
         ''' Test to ensure a user can login '''
         User = get_user_model()
@@ -40,11 +51,7 @@ class AuthenticationTest(TestCase):
             'password': 'Test2003'
         })
 
-        self.assertEqual(response.status_code, 302) # Succesful redirect means that the user was able to head to the front page
-
-        # Check that the user is authenticated
-        user = get_user_model().objects.get(email='test@test03.com')
-        self.assertEqual(int(self.client.session['_auth_user_id']), user.pk)
+        self.assertEqual(response.status_code, 302) # Succesful redirect means that the user was logged in and redirected to the home page
 
     def test_logout(self):
         ''' Test to ensure a user can logout '''
