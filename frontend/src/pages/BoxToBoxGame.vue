@@ -28,18 +28,6 @@
         <div class="formGroup" v-if="isFormGroupVisible"> <!-- Only show the form group if the game is active -->
           <input type="text" id="guess_input" v-model="guessInput" @keyup.enter="guess" placeholder="Enter your guess...">
           <ButtonHero @click="showPopup = true">Rules</ButtonHero>
-          <Popup :isVisible="showPopup" @update:isVisible="showPopup = $event">
-            <div class="popup-content">
-            <h4>Box To Box Rules</h4>
-            <ul>
-            <li>This game allows a maximum of 15 guesses</li>
-            <li>Your job is to correctly guess 9 players who have played at both clubs at each intersection in x and y</li>
-            <li>E.g. if Real Madrid was in x1 and Spain was in y1, a player to have represented both would be Sergio Ramos</li>
-            <br>
-            <li><strong>Note:</strong> Duplicate players as guesses are permitted</li>
-            </ul>
-            </div>
-          </Popup>
         </div>
         <p :key="gameDetails.guesses_left">Guesses remaining: {{ gameDetails.guesses_left }}</p>
       </div>
@@ -50,6 +38,18 @@
     <p>Loading game details...</p>
   </div>
 
+  <Popup :isVisible="showPopup" @update:isVisible="showPopup = $event">
+            <div class="popup-content">
+            <h4>Box To Box Rules</h4>
+            <ul>
+            <li>This game allows a maximum of 15 guesses</li>
+            <li>Your job is to correctly guess 9 players who have played at both clubs at each intersection in x and y</li>
+            <li>E.g. if Real Madrid was in x1 and Spain was in y1, a player to have represented both would be Sergio Ramos</li>
+            <br>
+            <li><strong>Note:</strong> Duplicate players as guesses are permitted</li>
+            </ul>
+            </div>
+    </Popup>
   <div id="toast"></div> <!-- Toast message container (can exist anywhere) -->
 </template>
 
