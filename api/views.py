@@ -36,8 +36,8 @@ def signup_view(request):
     ''' Handles sign up logic '''
 
     if request.method == "POST":
-        form = signupForm(request.POST, request.FILES)
-
+        
+        form = signupForm(request.POST, request.FILES) # Accept the form entered by the user
         if form.is_valid():
             
             user = form.save()
@@ -54,8 +54,9 @@ def login_view(request):
 
     if request.method == "POST":
 
-        form = loginForm(request.POST)
+        form = loginForm(request.POST) # Accept the form entered by the user
         if form.is_valid():
+
             email = form.cleaned_data['email']
             password = form.cleaned_data['password']
             user = authenticate(request, username=email, password=password)

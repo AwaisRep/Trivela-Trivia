@@ -42,7 +42,7 @@ urlpatterns = [
     path('guess_the_side/game/<int:game_id>', GuessTheSideView.as_view(), name='gts_game'),
     path('guess_the_side/guess/<int:session_id>', GuessTheSideView.as_view(), name='gts_guess'),
 
-    re_path(r'^.*$', TemplateView.as_view(template_name='api/spa/index.html'), name='home'), # Ensure the user is redirected to the vue page if any other url is entered
+    # re_path(r'^.*$', TemplateView.as_view(template_name='api/spa/index.html'), name='home'), # Ensure the user is redirected to the vue page if any other url is entered
 ]
 
 
