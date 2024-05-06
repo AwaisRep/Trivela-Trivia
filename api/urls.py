@@ -8,14 +8,18 @@ from rest_framework.routers import DefaultRouter
 
 from api import views
 from .views import main_spa, UserProfileHistoryView, BoxToBoxView, CareerPathView, GuessTheSideView
+import os
 app_name = 'api'
 
 #Handles all the url's served by the rest framework
 router = DefaultRouter()
 router.register(r'check_auth', UserProfileHistoryView, basename='check_auth')
 router.register(r'users', views.UserViewSet, basename='users')
+admin_url = os.getenv('SUPERUSER_URL', 'admin/') # Holds the environment variable for the admin url
 
 urlpatterns = [
+    path(admin_url, admin.site.urls),
+
     path('', main_spa),
     path('', include(router.urls)),
     path('login/', views.login_view, name='login'),
