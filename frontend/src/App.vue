@@ -20,8 +20,8 @@
 
         <router-link to="/landing" v-if="isAuthenticated" @click="logout" class="nav-button">Logout</router-link>
 
-        <button v-if="!isAuthenticated" class="nav-button" onclick="location.href='https://trivela-trivia.onrender.com/login'">Login</button>
-        <button v-if="!isAuthenticated" class="nav-button" onclick="location.href='https://trivela-trivia.onrender.com/signup'">Sign Up</button>
+        <button v-if="!isAuthenticated" class="nav-button" onclick="location.href='https://trivela-trivia.onrender.com/login/'">Login</button>
+        <button v-if="!isAuthenticated" class="nav-button" onclick="location.href='https://trivela-trivia.onrender.com/signup/'">Sign Up</button>
         </div>
       </nav>
 
