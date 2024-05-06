@@ -1,10 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm 
-from .models import User, PlayerBank, CareerBank
+from .models import User
 from django.conf import settings
-from django.db import transaction
-from django.core.exceptions import ValidationError
-import json
 
 class loginForm(forms.Form):
     ''' Form to authenticate current users '''

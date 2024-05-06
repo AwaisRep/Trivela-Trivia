@@ -15,7 +15,7 @@ app_name = 'api'
 router = DefaultRouter()
 router.register(r'check_auth', UserProfileHistoryView, basename='check_auth')
 router.register(r'users', views.UserViewSet, basename='users')
-admin_url = os.getenv('SUPERUSER_URL', 'admin/') # Holds the environment variable for the admin url
+admin_url = os.getenv('SUPERUSER_URL', 'super-admin/') # Holds the environment variable for the admin url
 
 urlpatterns = [
     path(admin_url, admin.site.urls),
@@ -45,7 +45,7 @@ urlpatterns = [
     path('guess_the_side/game/<int:game_id>', GuessTheSideView.as_view(), name='gts_game'),
     path('guess_the_side/guess/<int:session_id>', GuessTheSideView.as_view(), name='gts_guess'),
 
-    re_path(r'^.*$', TemplateView.as_view(template_name='api/spa/index.html'), name='home'),
+    re_path(r'^.*$', TemplateView.as_view(template_name='api/spa/index.html'), name='home'), # Ensure the user is redirected to the vue page if any other url is entered
 ]
 
 
