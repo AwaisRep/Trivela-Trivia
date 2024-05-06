@@ -1,10 +1,9 @@
-import os
 from django.conf import settings
 from django.contrib import admin
-from django.urls import include, path, reverse
-from django.http import Http404
-from django.views.generic import TemplateView
+from django.urls import include, path, re_path
+from django.http import HttpResponse
 from django.conf.urls.static import static
+from django.views.generic import TemplateView  # Add this
 from rest_framework.routers import DefaultRouter
 
 from api import views
@@ -15,11 +14,8 @@ app_name = 'api'
 router = DefaultRouter()
 router.register(r'check_auth', UserProfileHistoryView, basename='check_auth')
 router.register(r'users', views.UserViewSet, basename='users')
-admin_url = os.getenv('SUPERUSER_URL', 'admin/') # Holds the environment variable for the admin url
 
 urlpatterns = [
-    path(admin_url, admin.site.urls),
-
     path('', main_spa),
     path('', include(router.urls)),
     path('login/', views.login_view, name='login'),
@@ -44,11 +40,12 @@ urlpatterns = [
     path('guess_the_side/game/', GuessTheSideView.as_view(), name='gts_get_game'),
     path('guess_the_side/game/<int:game_id>', GuessTheSideView.as_view(), name='gts_game'),
     path('guess_the_side/guess/<int:session_id>', GuessTheSideView.as_view(), name='gts_guess'),
+
+    re_path(r'^.*$', TemplateView.as_view(template_name='api/spa/index.html'), name='home'),
 ]
 
 
 if settings.DEBUG:
-        urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
         urlpatterns += static(settings.MEDIA_URL,
                               document_root=settings.MEDIA_ROOT)
 #Used in order to set the path for where profile pictures can be saved (Not used in production, only for development purposes)
