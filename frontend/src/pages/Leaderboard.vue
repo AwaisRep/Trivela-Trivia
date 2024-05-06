@@ -69,7 +69,6 @@ export default defineComponent({
         display: block;
         max-width: 100%;
         min-width: 280px;
-        width: 90%;
         margin-top: 5%;
     }
 
