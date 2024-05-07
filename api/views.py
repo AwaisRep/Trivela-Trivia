@@ -381,13 +381,6 @@ class CareerPathView(View):
     def post(self, request, game_id):
         ''' Creates or resumes a CareerPath game session. Returns a JSON response. '''
 
-        def dispatch(self, request, *args, **kwargs):
-            if 'game_id' in kwargs:
-                return self.post(request, *args, **kwargs)
-            elif 'session_id' in kwargs:
-                return self.guess(request, *args, **kwargs)
-            return super().dispatch(request, *args, **kwargs)
-
         def continue_game(existing_session):
             ''' Auxiliary function to continue an existing career path session '''
             get_clubs = CareerBank.objects.filter(player_id=existing_session.gameID).values('team_name', 'appearances', 'goals', 'assists', 'is_loan', 'season') # Get the players clubs and stats

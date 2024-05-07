@@ -19,7 +19,7 @@
             <div class="userContent">
                 <div class="formGroup" v-if="isFormGroupVisible"> <!-- Form group is only visible if the game is active -->
                     <input type="text" id="guess_input" v-model="guessInput" @keyup.enter="guess" placeholder="Enter your guess...">
-                    <ButtonHero @click="guess">Submit</ButtonHero>
+                    <ButtonHero @click="showPopup = true">Rules</ButtonHero>
                 </div>
                 <p :key="gameDetails.guesses_left">Guesses remaining: {{ gameDetails.guesses_left }}</p>
             </div>
