@@ -28,6 +28,19 @@
     <div v-else>
         <p>Loading game details... Please click the back button and re-enter the game if this takes too long</p>
     </div>
+
+    <Popup :isVisible="showPopup" @update:isVisible="showPopup = $event">
+            <div class="popup-content">
+            <h4>Career Path Rules</h4>
+            <ul>
+            <li>This game allows a maximum of 5 guesses</li>
+            <li>Your job is to correctly guess the player based on the career path they took (in chronological order)</li>
+            <li>Loans are stated where necessary</li>
+            <br>
+            <li><strong>Note:</strong> One point can be earnt for winning this game!</li>
+            </ul>
+            </div>
+    </Popup>
     <div id="toast"></div> <!-- Toast message container (can exist anywhere) -->
 </template>
 
@@ -41,6 +54,7 @@ import { useLeaderboardStore } from '@/store/leaderboard.ts';
 import GameWrapper from '@/components/GameWrapper.vue';
 import ButtonHero from '@/components/ButtonHero.vue';
 import Card from '@/components/Card.vue';
+import Popup from '@/components/Popup.vue';
 
 // Custom interface that will handle the data relevant for each club the player represented
 interface club {
@@ -56,7 +70,7 @@ export default defineComponent({
 
     inheritAttrs:false,
     components: {
-        GameWrapper, Card, ButtonHero
+        GameWrapper, Card, ButtonHero, Popup
     },
     setup() {
 
@@ -73,6 +87,7 @@ export default defineComponent({
 
         const guessInput = ref(''); // Current guess input by the user
         const isFormGroupVisible = ref(true); // Visibility of the form group
+        const showPopup = ref(false); // Rules popup
 
 
         // Toast queues to display messages to the user
@@ -226,6 +241,7 @@ export default defineComponent({
             guessInput,
             careerPath,
             isFormGroupVisible,
+            showPopup
         }
     },
 })
@@ -288,6 +304,10 @@ export default defineComponent({
       visibility: visible;
       -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
       animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+
+  ul {
+    text-align: left; /* Aligns the text to the left (intended for popups) */
   }
 
 

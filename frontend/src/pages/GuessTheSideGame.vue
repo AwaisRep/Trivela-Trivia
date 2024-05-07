@@ -10,6 +10,8 @@
             <a><strong>Description: </strong>{{ gameDetails.teamDescription }}</a>
             <br>
             <a><strong>Rules:</strong> The rules of this game are to successfully guess all the players in this starting eleven with just 15 guesses!</a>
+            <br>
+            <a><strong>Points</strong> One point can be earnt for winning this game! </a>
           </Card>
 
           <Card>

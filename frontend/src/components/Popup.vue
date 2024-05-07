@@ -47,6 +47,7 @@
     background: white;
     padding: 20px;
     border-radius: 10px;
+    text-align: center; /* Center the button and title text in the popup */
   }
 
   .popup-overlay {

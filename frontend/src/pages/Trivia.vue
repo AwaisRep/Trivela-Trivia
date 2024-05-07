@@ -12,6 +12,7 @@
           <li>There are 60-seconds in this game. Each game has a maximum of 10 questions.</li>
           <li>You will be matched with another player actively searching the trivia game mode.</li>
           <li>The player with more correct answers at the end of the game will be declared winner and earn one point! A draw results in nothing!</li>
+          <li>Winners earns two points, a draw earns one, and a loser earns none!</li>
           <br>
           <li><strong>Note:</strong> If no players are actively playing trivia, your matchmaking session will be cancelled.</li>
           </ul>

@@ -46,6 +46,7 @@
             <li>Your job is to correctly guess 9 players who have played at both clubs at each intersection in x and y</li>
             <li>E.g. if Real Madrid was in x1 and Spain was in y1, a player to have represented both would be Sergio Ramos</li>
             <br>
+            <li>One point can be earnt for winning this game!</li>
             <li><strong>Note:</strong> Duplicate players as guesses are permitted</li>
             </ul>
             </div>
@@ -261,7 +262,7 @@ export default defineComponent({
 </script>
   
 
-  <style scoped>
+<style scoped>
 
   /* Custom styling for the 3x3 grid */
   .grid {
@@ -351,10 +352,6 @@ export default defineComponent({
       animation: fadein 0.5s, fadeout 0.5s 2.5s;
   }
 
-  .popup-inner {
-    text-align: center; /* Center the button and title text in the popup */
-  }
-
   /* Media queries for responsiveness */
 
   @media (max-width: 1000px) {
@@ -380,4 +377,4 @@ export default defineComponent({
       flex-direction: column;
     }
   }
-  </style>
+</style>
