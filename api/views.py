@@ -235,7 +235,7 @@ class BoxToBoxView(View):
             if not answers or not grid:
 
                 existing_session.delete()
-                return start_new_game(existing_session)
+                return start_new_game(game_id)
             
             else: #Otherwise pick up where the user left off
                 return continue_game(grid, existing_session)
