@@ -40,7 +40,7 @@
     </div>
   
     <div v-else>
-      <p>Loading game details...</p>
+      <p>Loading game details... Please click the back button and re-enter the game if this takes too long</p>
     </div>
   
     <div id="toast"></div> <!-- Toast message container (can exist anywhere) -->

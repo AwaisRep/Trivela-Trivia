@@ -8,11 +8,11 @@
         <div class="grid-item">Clubs</div>
         <!-- Y-axis headers -->
         <div class="grid-item header" v-for="(yclub, yindex) in getYClubs" :key="'y' + yindex">
-          {{ yclub }}
+          <strong>{{ yclub }}</strong>
         </div>
         <!-- X-axis headers and grid data cells for each x-y combination -->
         <template v-for="(xclub, xindex) in getXClubs" :key="'x' + xindex">
-          <div class="grid-item header">{{ xclub }}</div>
+          <div class="grid-item header"><strong>{{ xclub }}</strong></div>
           <!-- Displaying cells for x against all y's -->
           <div class="grid-item" v-for="(yclub, yindex) in getYClubs" :key="'cell' + xindex + '_' + yindex">
             {{ isFormGroupVisible ? (gameDetails.grid['x' + (xindex + 1) + 'y' + (yindex + 1)] ? 'Guessed' : 'Not Guessed') + ' (' + yclub + ')' : 'Finished' }}
@@ -35,7 +35,7 @@
   </div>
 
   <div v-else> <!-- If the game details are not loaded, display a loading message -->
-    <p>Loading game details...</p>
+    <p>Loading game details... Please click the back button and re-enter the game if this takes too long</p>
   </div>
 
   <Popup :isVisible="showPopup" @update:isVisible="showPopup = $event">
@@ -332,7 +332,7 @@ export default defineComponent({
 
   /* Custom toast styling */
   #toast {
-    visibility: hidden;
+    visibility: hidden; /* Hidden by default */
     min-width: 250px;
     margin-left: -125px;
     color: #fff;
@@ -349,6 +349,10 @@ export default defineComponent({
       visibility: visible;
       -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
       animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+
+  .popup-inner {
+    text-align: center; /* Center the button and title text in the popup */
   }
 
   /* Media queries for responsiveness */
