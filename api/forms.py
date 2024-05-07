@@ -6,12 +6,12 @@ from django.conf import settings
 class loginForm(forms.Form):
     ''' Form to authenticate current users '''
     email = forms.EmailField(max_length=100, label='Email')
-    password = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    password = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={'class': 'form-control'})) # Apply bootstrap class to password input value
 
     email.widget.attrs.update({"class": "form-control"})
-    password.widget.attrs.update({"class": "form-control"})
+    password.widget.attrs.update({"class": "form-control"}) # Apply bootstrap class to email and password
 
-    class Meta:
+    class Meta: # Only show two fields
         fields = ['email', 'password']
 
 
@@ -22,7 +22,8 @@ class signupForm(UserCreationForm):
     username = forms.CharField(max_length=15, label="Username", widget=forms.TextInput(attrs={'class': 'form-control'}))
     password1 = forms.CharField(max_length=100, label="Password", widget=forms.PasswordInput(attrs={'class': 'form-control'}))
     password2 = forms.CharField(max_length=100, label="Confirm Password", widget=forms.PasswordInput(attrs={'class': 'form-control'})) # Two fields to confirm password
-    class Meta:
+
+    class Meta: # Target the user model to show the fields we want to display and save to
         model = User
         fields = ('email', 'username', 'password1', 'password2')
 

@@ -35,7 +35,7 @@
             <ul>
             <li>This game allows a maximum of 5 guesses</li>
             <li>Your job is to correctly guess the player based on the career path they took (in chronological order)</li>
-            <li>Loans are stated where necessary</li>
+            <li>Loans are stated where necessary, in bold</li>
             <br>
             <li><strong>Note:</strong> One point can be earnt for winning this game!</li>
             </ul>

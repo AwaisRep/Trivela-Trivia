@@ -1,29 +1,29 @@
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
-from django.db.models import JSONField
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
 from django.core.validators import MaxValueValidator, RegexValidator
 from django.core.exceptions import ValidationError
 from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
+from django.utils import timezone
 
 year_validator = RegexValidator(regex=r'^\d{4}$', message="Enter a valid year in YYYY format") # Simple regex pattern to validate the year of a club's season
 
 class CustomUserManager(BaseUserManager):
     ''' Custom user model manager to create users/admins '''
 
-    def create_user(self, username, email, password=None, **extra_fields):
+    def create_user(self, username, email, password=None, **extra_fields): # Override the default create_user method
         '''
         Create and save a User with the given username, email, and password.
         '''
         if not username:
-            raise ValueError(_('The Username must be set'))
+            raise ValueError(_('The Username must be set')) # The user must enter a username
         
         email = self.normalize_email(email)
         user = self.model(username=username, email=email, **extra_fields)
         user.set_password(password)
-        user.save(using=self._db)
+        user.save(using=self._db) # Save the user to the database with django's built in method
         return user
 
     def create_superuser(self, username, email, password=None, **extra_fields):
@@ -43,7 +43,8 @@ class CustomUserManager(BaseUserManager):
 class User(AbstractUser):
     ''' Custom user model where username is the primary identifier, not email '''
 
-    email = models.EmailField(_('email address'), unique=True)
+    email = models.EmailField(_('email address'), unique=True) # No duplicate emails can exist
+    username = models.CharField(_('username'), max_length=150, unique=True) # No duplicate usernames can exist
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email']  # Email is required, but not the primary identifier
@@ -51,7 +52,7 @@ class User(AbstractUser):
     objects = CustomUserManager()
 
     def __str__(self):
-        ''' String representation of the user '''
+        ''' String representation of the user as username '''
         return self.username
     
 class UserHistory(models.Model):
@@ -92,6 +93,7 @@ class PlayedGames(models.Model):
         unique_together = ('user', 'game_type', 'game_id') # Ensure the user can only play a game once for that particular type (e.g. Box2Box)
 
     def __str__(self):
+        ''' String representation of the played game '''
         completion_status = "completed" if self.completed else "in progress"
         return f'{self.user.username} - {self.game_type} Game ID {self.game_id} ({completion_status})'
 
@@ -99,9 +101,10 @@ class PlayedGames(models.Model):
 class MatchmakingQueue(models.Model):
     ''' Model to store users in the matchmaking queue '''
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    timestamp = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now_add=True) # The time they entered the queue (not used for anything apart from admin logs)
 
     def __str__(self):
+        ''' String representation of the user in the matchmaking queue '''
         return self.user.username
     
 class Trivia(models.Model):
@@ -172,6 +175,8 @@ class Trivia(models.Model):
             user_historyOne.user_points += 1
             user_historyTwo.user_points += 1
 
+        self.is_active = False # Set the game to inactive as it's over
+        self.end_time = timezone.now() # Set the end time of the session (used for logging purposes in the admin panel)
         # Save the changes
         user_historyOne.save()
         user_historyTwo.save()
@@ -195,18 +200,19 @@ class BoxToBox(models.Model):
     correct_scores = models.IntegerField(default=0) #Amount guessed correctly
     guesses = models.IntegerField(default=0) #Amount of attempts used (lower is better)
 
-    points_received = models.IntegerField(default=0, validators=[MaxValueValidator(10)]) #Amount of points earnt for the game
+    points_received = models.IntegerField(default=0, validators=[MaxValueValidator(1)]) #Amount of points earnt for the game
 
     def save(self, *args, **kwargs):
-        ''' Ensure no tampering, as a user cannot achieve more than 10 points '''
-        if self.points_received > 10:
+        ''' Ensure no tampering, as a user cannot achieve more than 1 point '''
+        if self.points_received > 1:
 
-            raise ValidationError("Points achieved cannot exceed 10")
+            raise ValidationError("Points achieved cannot exceed 1")
         
         self.full_clean()
-        super(BoxToBox, self).save(*args, **kwargs)
+        super(BoxToBox, self).save(*args, **kwargs) # Save the model with any previously constructed arguments
 
     def __str__(self):
+        ''' String representation of the box to box game result '''
         return f"BoxToBox session\n Correct: {self.correct_scores}\n Guesses: {self.guesses}"
 
 
@@ -230,6 +236,7 @@ class CareerPath(models.Model):
         super(CareerPath, self).save(*args, **kwargs)
 
     def __str__(self):
+        ''' String representation of the career path game result '''
         return f"CareerPath - Player: {self.player_guess}, Guesses: {self.guesses}, Guessed: {self.result}"
 
 
@@ -240,8 +247,8 @@ class GuessTheSide(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE) #User assigned to game session
 
     # Game fields
-    team_guess = models.CharField(null=False, max_length=100)
-    team_description = models.CharField(max_length=250)
+    team_guess = models.CharField(null=False, max_length=100) # Simply their club name
+    team_description = models.CharField(max_length=250) # Accurately describes the side to be guessed
 
     guesses = models.IntegerField(default=0) #Amount of attempts used (lower is better)
     correct_scores = models.IntegerField(default=0) #Amount guessed correctly
@@ -258,6 +265,7 @@ class GuessTheSide(models.Model):
         super(GuessTheSide, self).save(*args, **kwargs)
 
     def __str__(self):
+        ''' String representation of the guess the side game result '''
         return f"GuessTheSide\n Team: {self.team_guess}\n Guesses: {self.guesses}\n Guessed: {self.result}"
     
 #Answer models (Banks)
@@ -284,29 +292,32 @@ class PlayerBank(models.Model):
     player_names = ArrayField(models.CharField(max_length=250), default=list, blank=True) # A player can have multiple names they are known by
 
     def __str__(self):
+        ''' Simple print wrapper (used for admin panel)'''
         return ', '.join(self.player_names)
     
 class CareerBank(models.Model):
     ''' Model to store the career path information for a single club '''
 
     player = models.ForeignKey(PlayerBank, related_name='careers', on_delete=models.CASCADE)
-    team_name = models.CharField(max_length=250)
+    team_name = models.CharField(max_length=250) # The team at the time of the player's career
     appearances = models.IntegerField()
     goals = models.IntegerField()
     assists = models.IntegerField()
-    is_loan = models.BooleanField(default=False)
-    season = models.CharField(max_length=4, validators=[year_validator], help_text="Enter the year in YYYY")
+    is_loan = models.BooleanField(default=False) # Indicates if the player was on loan at the club (not always required)
+    season = models.CharField(max_length=4, validators=[year_validator], help_text="Enter the year in YYYY") # Abides by the four digit season format
 
     def __str__(self):
+        ''' Simple print wrapper (used for admin panel)'''
         return self.team_name
     
 class FormationBank(models.Model):
     ''' Model to store the entire formations for guess the side '''
     club = models.ForeignKey(ClubBank, on_delete=models.CASCADE)
-    player_names = ArrayField(models.CharField(max_length=250), default=list, blank=True)
+    player_names = ArrayField(models.CharField(max_length=250), default=list, blank=True) # The player that was in that side
     position = models.CharField(max_length=10)
 
     def __str__(self):
+        ''' Simple print wrapper (used for admin panel)'''
         return f"{self.club} - {self.player_names}"
     
 class DataLoadStatus(models.Model):

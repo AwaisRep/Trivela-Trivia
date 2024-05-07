@@ -19,7 +19,7 @@ export interface UserHistory {
 
 // Defining the authentication store
 export const useAuthStore = defineStore('auth', {
-  // Initialising states
+  // Initialising state
   state: (): AuthState => ({
     isAuthenticated: false, 
     email: '',

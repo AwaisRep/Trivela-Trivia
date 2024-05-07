@@ -16,12 +16,11 @@ Including another URLconf
 from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
-from django.http import HttpResponse
 import os
 
 admin_url = os.getenv('SUPERUSER_URL', 'super-admin/') # Holds the environment variable for the admin url
 
 urlpatterns = [
     path(admin_url, admin.site.urls),
-    path('', include('api.urls')),
+    path('', include('api.urls')), # References all the urls in the api
 ]

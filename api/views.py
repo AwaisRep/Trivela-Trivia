@@ -1,23 +1,18 @@
 import json
 import glob
 import os
-from pathlib import Path
-from django.shortcuts import get_object_or_404, render, redirect
+from django.shortcuts import render
 from django.http import HttpResponse, HttpRequest, HttpResponseRedirect, JsonResponse
 from django.views import View
 from django.conf import settings
 from django.core.cache import cache
-from django.contrib import auth
 from django.contrib.auth import login, logout, authenticate
-from django.contrib.auth.backends import ModelBackend
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.utils.decorators import method_decorator
 from django.urls import reverse
 from django.db import models
-from django.db.models import Q
 from rest_framework import viewsets, permissions
-from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import User, UserHistory, BoxToBox, GuessTheSide, CareerPath, PlayedGames, PlayerBank, CareerBank, ClubBank, FormationBank
 from .serializers import UserSerializer, HistorySerializer

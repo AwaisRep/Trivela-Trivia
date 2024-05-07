@@ -6,11 +6,11 @@ import path from 'path';
 export default defineConfig(({ mode }) => ({
     base:
         mode == "development"
-            ? "http://localhost:5173/"
+            ? "http://localhost:5173/" // Development server where we can access the frontend
             : "/static/api/spa/",
     build: {
         emptyOutDir: true,
-        outDir: "../api/static/api/spa",
+        outDir: "../api/static/api/spa", // Output directory for the build
     },
     plugins: [vue()],
     resolve: {

@@ -8,7 +8,7 @@
     "skipLibCheck": true,
     "baseUrl": ".", // This line is added to specify the base URL for non-relative module imports
     "paths": {
-      "@/*": ["src/*"] // This assumes that you are using the '@' alias to refer to your 'src' directory
+      "@/*": ["src/*"] // This assumes that we are using the '@' alias to refer to our 'src' directory
     },
 
     /* Bundler mode */

@@ -11,6 +11,7 @@ engines = {
 
 
 def config():
+    ''' Designed for dynamic database configuration '''
     service_name = os.getenv('DATABASE_SERVICE_NAME', '').upper().replace('-', '_')
     if service_name:
         engine = engines.get(os.getenv('DATABASE_ENGINE'), engines['sqlite'])

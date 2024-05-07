@@ -13,7 +13,7 @@ interface CareerPathData {
 }
 
 export const useCareerPathStore = defineStore('careerPath', {
-  state: (): CareerPathData => ({
+  state: (): CareerPathData => ({ // Initialising state
     games: [],
   }),
   actions: {
@@ -22,7 +22,7 @@ export const useCareerPathStore = defineStore('careerPath', {
       try {
         const response = await fetch(`https://trivela-trivia.onrender.com/career_path/game/`, {
           method: 'GET',
-          credentials: 'include'
+          credentials: 'include' // Django user credentials
         });
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);

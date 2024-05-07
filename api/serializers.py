@@ -3,11 +3,11 @@ from rest_framework import serializers
 from .models import User, UserHistory, Trivia
 
 class UserSerializer(serializers.ModelSerializer):
-    ''' Serializer to allow for user creation and updating '''
+    ''' Serializer to allow for user creation and updating (REST) '''
     email = serializers.EmailField(required=False)
     password = serializers.CharField(write_only=True, required=False)
 
-    class Meta:
+    class Meta: # Used to target the specific model and fields we want to edit/return
         model = User
         fields = ['id', 'email', 'password']
 
@@ -24,12 +24,13 @@ class UserSerializer(serializers.ModelSerializer):
         return instance
 
 class HistorySerializer(serializers.ModelSerializer):
-    ''' Serializer to retrieve a user's history '''
+    ''' Serializer to retrieve a user's history (REST) '''
     username = serializers.SerializerMethodField()
 
-    class Meta:
+    class Meta: # Used to target the specific model and fields we want to edit/return
         model = UserHistory
         fields = ['username', 'matches_played', 'matches_won', 'matches_drawn', 'matches_lost', 'user_points'] # Attributes to return
 
     def get_username(self, obj):
+        ''' Get the username of the user associated with the history '''
         return obj.user.username

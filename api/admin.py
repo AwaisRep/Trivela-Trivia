@@ -3,7 +3,7 @@ from .models import User, Trivia, TriviaBank, ClubBank, PlayerBank, CareerBank, 
 from django.contrib.auth.admin import UserAdmin
 
 class CustomUserAdmin(UserAdmin):
-    ''' Custom User Admin to inherit the user model '''
+    ''' Custom User Admin to inherit the user model to be displayed '''
     model = User
     list_display = ('email', 'is_staff', 'is_active',)
     list_filter = ('email', 'is_staff', 'is_active',)
@@ -19,6 +19,8 @@ class CustomUserAdmin(UserAdmin):
     )
     search_fields = ('email',)
     ordering = ('email',)
+
+    # We use extra field sets to see superuser priveleges and add the ability to make changes
 
 class TriviaAdmin(admin.ModelAdmin):
     ''' Custom admin for the Trivia model '''
@@ -55,7 +57,7 @@ class DataLoadStatusAdmin(admin.ModelAdmin):
     list_display = ('data_loaded',)
     search_fields = ('data_loaded',)
 
-admin.site.register(User, CustomUserAdmin)  # Register models with the custom admin site
+admin.site.register(User, CustomUserAdmin)  # Register models as shown below with the custom admin site, this will add these views to the admin page
 admin.site.register(Trivia, TriviaAdmin)
 admin.site.register(TriviaBank, TriviaBankAdmin)
 admin.site.register(ClubBank, ClubBankAdmin)

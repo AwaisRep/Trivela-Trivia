@@ -148,7 +148,7 @@ export default defineComponent({
     transition-duration: .3s;
     letter-spacing: 2px;
     min-width: 160px;
-    text-transform: uppercase;
+    text-transform: uppercase; /* Uppercase text */
     white-space: normal;
     font-weight: 700;
     text-align: center;
@@ -158,7 +158,7 @@ export default defineComponent({
     height: 48px;
   }
 
-  .nav-button:hover {
+  .nav-button:hover { /* Hover effect on buttons */
       background-color: #505357;
       color: white
   }

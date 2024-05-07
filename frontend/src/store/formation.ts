@@ -13,7 +13,7 @@ interface formationsData {
 }
 
 export const useFormationsStore = defineStore('formations', {
-  state: (): formationsData => ({
+  state: (): formationsData => ({ // Initialising state
     games: [],
   }),
   actions: {
@@ -22,7 +22,7 @@ export const useFormationsStore = defineStore('formations', {
       try {
         const response = await fetch(`https://trivela-trivia.onrender.com/guess_the_side/game/`, {
           method: 'GET',
-          credentials: 'include'
+          credentials: 'include' // Django user credentials
         });
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);

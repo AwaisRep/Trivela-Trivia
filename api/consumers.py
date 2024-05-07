@@ -3,8 +3,7 @@ import asyncio
 from channels.generic.websocket import AsyncWebsocketConsumer
 from channels.layers import get_channel_layer
 from channels.db import database_sync_to_async
-from django.conf import settings
-from api.models import Trivia, TriviaBank, MatchmakingQueue, User, UserChannel, UserHistory
+from api.models import Trivia, TriviaBank, MatchmakingQueue
 import time
 from asgiref.sync import sync_to_async
 from django.db.models import Prefetch
@@ -39,7 +38,7 @@ class MatchmakingConsumer(AsyncWebsocketConsumer):
     async def add_to_queue(self, user):
         '''Add the user to the matchmaking queue.'''
 
-        user_in_queue, created = await self.get_or_create_queue_entry(user)
+        user_in_queue, created = await self.get_or_create_queue_entry(user) # If the user is not already in the queue, use the create keyword to add them
         if not created:
             await self.send(json.dumps({'message': 'You are already in the queue.'}))
             return
@@ -94,7 +93,7 @@ class MatchmakingConsumer(AsyncWebsocketConsumer):
     @database_sync_to_async
     def get_opponent(self, user):
         '''Get an opponent for the user from the matchmaking queue'''
-        return MatchmakingQueue.objects.exclude(user=user).select_related('user').first()
+        return MatchmakingQueue.objects.exclude(user=user).select_related('user').first() # Specify the user accessing the consumer
 
     @database_sync_to_async
     def create_game(self, player_one, player_two):
@@ -105,7 +104,7 @@ class MatchmakingConsumer(AsyncWebsocketConsumer):
     @database_sync_to_async
     def remove_users_from_queue(self, users):
         '''Remove the row of users from the matchmaking queue'''
-        MatchmakingQueue.objects.filter(user__in=users).delete()
+        MatchmakingQueue.objects.filter(user__in=users).delete() # Removes users when the game is starting
 
     @database_sync_to_async
     def remove_from_queue(self, user):
@@ -124,16 +123,16 @@ class TriviaGameConsumer(AsyncWebsocketConsumer):
     async def connect(self):
         '''Called when the users are ready to start playing the game'''
 
-        self.room_group_name = f'game_{self.scope["url_route"]["kwargs"]["game_id"]}'
+        self.room_group_name = f'game_{self.scope["url_route"]["kwargs"]["game_id"]}' # The url which holds the session
         await self.channel_layer.group_add(self.room_group_name, self.channel_name)
-        await self.accept()
+        await self.accept() # Attempt to accept the user
 
         if await self.check_game_ready(): # Guarantee the game is ready before starting
             await self.start_game() # Start the game
 
     async def disconnect(self, close_code):
         '''Called when the websocket is disconnected. Nullifies the game session'''
-        await self.channel_layer.group_discard(self.room_group_name, self.channel_name)
+        await self.channel_layer.group_discard(self.room_group_name, self.channel_name) # Kill the session
 
     async def receive(self, text_data):
         '''Called when a message is received from the client'''
@@ -170,6 +169,7 @@ class TriviaGameConsumer(AsyncWebsocketConsumer):
 
     async def send_server_time(self):
         '''Send the server time to each client every second'''
+
         while not self.game_end: # Only send the tick if the game has not ended
             elapsed_time = time.time() - self.game_start_time
             remaining_time = max(60 - elapsed_time, 0)
@@ -181,6 +181,7 @@ class TriviaGameConsumer(AsyncWebsocketConsumer):
 
     async def start_game(self):
         '''Start the game session'''
+
         self.game_end = False  # Flag to indicate if the game has ended
 
         # Start the game timer for 60 seconds
@@ -194,7 +195,7 @@ class TriviaGameConsumer(AsyncWebsocketConsumer):
         if game is not None:
             player_one = game.player_one.__str__()
             player_two = game.player_two.__str__()
-            self.user_data[player_one] = {'question_count': 0, 'correct_answers': 0, 'current_question_index': 0}
+            self.user_data[player_one] = {'question_count': 0, 'correct_answers': 0, 'current_question_index': 0} # Base user data initialised to 0 0 0
             self.user_data[player_two] = {'question_count': 0, 'correct_answers': 0, 'current_question_index': 0}
             # Set the initial user data at the start of the game
 
@@ -207,19 +208,21 @@ class TriviaGameConsumer(AsyncWebsocketConsumer):
 
     async def send_question(self, question, user):
         '''Send a question to a user'''
+
         await self.send(text_data=json.dumps({
             'question': question.question,
-            'question_id': question.id,
-            'index': self.user_data[user]['question_count']+1,
+            'question_id': question.id, # Allow the user to use the question id to send an answer
+            'index': self.user_data[user]['question_count']+1, # Incerement the index to give the next question
         }))
 
     async def check_answer(self, answer, question_id, user):
         '''Check if the answer is correct and update the score and index'''
+
         correct = await self.is_correct_answer(question_id, answer)
         if correct: # Modify relevant scoped variables if the answer is correct
             self.user_data[user]['correct_answers'] += 1
             await self.update_score(user)
-        await self.send(text_data=json.dumps({
+        await self.send(text_data=json.dumps({ # Send the result of the answer to the user
             'result': 'correct' if correct else 'incorrect',
             'question_count': self.user_data[user]['question_count'],
             'correct_answers': self.user_data[user]['correct_answers']
@@ -227,12 +230,14 @@ class TriviaGameConsumer(AsyncWebsocketConsumer):
 
     async def end_game_timer(self):
         '''Delay the game end for 60 seconds after the game starts'''
-        await asyncio.sleep(60)  # Wait for 60 seconds
+
+        await asyncio.sleep(60)  # Wait for 60 seconds before ending the game
         if not self.game_end:
             await self.end_game()
 
     async def end_game(self):
         '''End the game session and finalize the game result'''
+
         async with self.end_game_lock: # Acquire the lock to prevent multiple calls
             if self.game_end:  # If the game has already ended, return immediately
                 return
@@ -251,7 +256,7 @@ class TriviaGameConsumer(AsyncWebsocketConsumer):
             if result is not None:
                 result = await database_sync_to_async(getattr)(result, 'username') # Get the winner's username (if any)
 
-            # Possible cases for the winner/drawer
+            # Possible cases for the winner/drawer/loser
             if result == player_one.username:
                 result_message = {
                     player_one.username: 'Nicely done! You won!',
@@ -273,45 +278,51 @@ class TriviaGameConsumer(AsyncWebsocketConsumer):
                 await self.channel_layer.group_send(self.room_group_name, {  # Use the group name
                     'type': 'game_message',
                     'game_over': True,
-                    'user': user,  # Add a 'user' field to the message
+                    'user': user,  # Add a 'user' field to the message to identify the recipient
                     'message': message,
-                    'remaining_time': 0,
+                    'remaining_time': 0, # Set the remaining time to 0 as the server may have stopped sending ticks, with the final possibly being '1'
                 })
 
     async def is_correct_answer(self, question_id, answer):
         '''Check if the answer is correct for the given question id'''
+
         question = await sync_to_async(TriviaBank.objects.get)(id=question_id)
         correct_answers = question.answer
         return any(correct_answer.upper() == answer.upper() for correct_answer in correct_answers) # Make comparison case-insensitive
 
     async def get_game(self):
         '''Get the game instance id for the current game'''
+
         game_id = self.scope['url_route']['kwargs']['game_id']
         game = await database_sync_to_async(Trivia.objects.prefetch_related(
             Prefetch('player_one'),
             Prefetch('player_two'),
-        ).get)(gameID=game_id) # Retrieve the particular game id for the session that exists between the two players
+        ).get)(gameID=game_id) # Retrieve the particular game id for the session that exists between the two players (prefetch)
         return game
     
     async def game_message(self, event):
         '''Send the game message to the client based on the user scope'''
-        if event['user'] == self.scope['user'].username:
+
+        if event['user'] == self.scope['user'].username: # Make sure we are sending the message to the right user
             await self.send(text_data=json.dumps(event))
 
     @sync_to_async
     def get_result(self, game):
-        '''Get the result of the game from the game instance in a consistent manner'''
+        '''Get the result of the game from the game instance in a consistent manner
+        Through the use of sync to async'''
+
         return game.result
 
     @database_sync_to_async
     def update_score(self, user):
         '''Update the score of the user in the game instance'''
-        game_id = self.scope["url_route"]["kwargs"]["game_id"]
+
+        game_id = self.scope["url_route"]["kwargs"]["game_id"] # Retirve the game id from the URL
         try:
             game = Trivia.objects.get(gameID=game_id)
         except Trivia.DoesNotExist:
-            return  # Handle the exception as appropriate for your application
-        if user == game.player_one:
+            return  # Return a None object if the game doesn't exist
+        if user == game.player_one: # Update the relevant player's score
             game.score_playerOne += 1
         else:
             game.score_playerTwo += 1
@@ -320,14 +331,16 @@ class TriviaGameConsumer(AsyncWebsocketConsumer):
     @database_sync_to_async
     def load_questions(self):
         '''Retrieve 10 random questions from the database'''
-        return list(TriviaBank.objects.order_by('?')[:10])  # Randomly select 10 questions
+
+        return list(TriviaBank.objects.order_by('?')[:10])  # Randomly select 10 questions from the trivia bank
 
     @database_sync_to_async
     def check_game_ready(self):
         '''Check if the row has been created in the Trivia model with game id'''
+        
         game_id = self.scope["url_route"]["kwargs"]["game_id"]
         try:
             game = Trivia.objects.get(gameID=game_id)
         except Trivia.DoesNotExist:
             return False  # Return False if the game does not exist
-        return game.player_one is not None and game.player_two is not None
+        return game.player_one is not None and game.player_two is not None # Return True only if both players are set

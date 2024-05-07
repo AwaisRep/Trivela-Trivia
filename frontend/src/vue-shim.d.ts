@@ -5,7 +5,7 @@ declare module "*.vue" {
     export default component;
   }
   
-declare module '@/store/auth' {
+declare module '@/store/auth' { // Path to the store auth store
   import { Store } from 'pinia';
 
   interface AuthStore {

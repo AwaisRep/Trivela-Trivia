@@ -1,14 +1,11 @@
 from django.conf import settings
-from django.contrib import admin
 from django.urls import include, path, re_path
-from django.http import HttpResponse
 from django.conf.urls.static import static
-from django.views.generic import TemplateView  # Add this
+from django.views.generic import TemplateView
 from rest_framework.routers import DefaultRouter
 
 from api import views
 from .views import main_spa, UserProfileHistoryView, BoxToBoxView, CareerPathView, GuessTheSideView
-import os
 app_name = 'api'
 
 #Handles all the url's served by the rest framework
@@ -43,10 +40,11 @@ urlpatterns = [
     path('guess_the_side/guess/<int:session_id>', GuessTheSideView.as_view(), name='gts_guess'),
 
     re_path(r'^.*$', TemplateView.as_view(template_name='api/spa/index.html'), name='home'), # Ensure the user is redirected to the vue page if any other url is entered
+    # We use a regex to match any other pattern that has not been defined above this
 ]
 
 
 if settings.DEBUG:
         urlpatterns += static(settings.MEDIA_URL,
                               document_root=settings.MEDIA_ROOT)
-#Used in order to set the path for where profile pictures can be saved (Not used in production, only for development purposes)
+#Used in order to set the path for where static files are stored (vue files for instance)

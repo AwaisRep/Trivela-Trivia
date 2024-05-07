@@ -88,7 +88,7 @@ CORS_ORIGIN_WHITELIST = [
     "http://localhost:5173",
     "http://127.0.0.1:8000",
     "http://127.0.0.1:5173",
-    "https://trivela-trivia.onrender.com"  # Custom url
+    "https://trivela-trivia.onrender.com"  # Custom url to allow for cross-origin requests
 ]
 
 CORS_ALLOWED_ORIGINS = [
@@ -96,7 +96,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:8000",
     "http://127.0.0.1:5173",
-    "https://trivela-trivia.onrender.com"  # Custom url
+    "https://trivela-trivia.onrender.com"  # Custom url to allow for cross-origin requests
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -104,15 +104,15 @@ CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:8000",
     "http://127.0.0.1:5173",
-    "https://trivela-trivia.onrender.com"  # Custom url
+    "https://trivela-trivia.onrender.com"  # Custom url to allow for cross-origin requests
 ]
 
-FRONTEND_URL = os.getenv('FRONTEND_URL', 'http://localhost:8000/')
+FRONTEND_URL = os.getenv('FRONTEND_URL', 'http://localhost:8000/') # Frontend url is either read by the environment variable or set to localhost
 
 SESSION_COOKIE_DOMAIN = None
 CSRF_COOKIE_DOMAIN = None
 
-REST_FRAMEWORK = {
+REST_FRAMEWORK = { # REST framework settings so that users can authenticate and access the API
    'DEFAULT_AUTHENTICATION_CLASSES': (
        'rest_framework.authentication.SessionAuthentication',
        'rest_framework.authentication.BasicAuthentication',

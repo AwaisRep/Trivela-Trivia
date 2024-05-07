@@ -17,7 +17,7 @@ export interface Leaderboard {
 }
 
 export const useLeaderboardStore = defineStore('leaderboard', {
-  state: (): Leaderboard => ({
+  state: (): Leaderboard => ({ // Initialising state
     leaderboardData: []
   }),
   getters: {
@@ -28,7 +28,7 @@ export const useLeaderboardStore = defineStore('leaderboard', {
       try {
         const response = await fetch(`https://trivela-trivia.onrender.com/leaderboard`, {
           method: 'GET',
-          credentials: 'include'
+          credentials: 'include' // Django user credentials
         });
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);

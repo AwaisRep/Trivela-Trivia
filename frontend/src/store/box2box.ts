@@ -13,16 +13,16 @@ interface BoxToBoxData {
 }
 
 export const useBoxToBoxStore = defineStore('box2box', {
-  state: (): BoxToBoxData => ({
+  state: (): BoxToBoxData => ({ // Initialising state
     games: [],
   }),
   actions: {
     async fetchGames() {
-      this.games = []; // Reset games before fetching new ones
+      this.games = []; // Reset games before fetching new ones as there's a chance an update has occured
       try {
         const response = await fetch(`https://trivela-trivia.onrender.com/box2box/game/`, {
           method: 'GET',
-          credentials: 'include'
+          credentials: 'include' // Django user credentials
         });
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
