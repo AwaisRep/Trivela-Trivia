@@ -1,4 +1,8 @@
-# Template
+# Production
+
+The trivela trivia application is seen in this github repo.
+The website currently operates on a free instance hosted at render.com. It is set to expire, when the trial period expires.
+[Access Here](https://trivela-trivia.onrender.com/)
 
 ## Local development
 
