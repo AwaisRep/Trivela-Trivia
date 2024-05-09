@@ -4,7 +4,7 @@
       <section class="hero-section">
         <h2>Welcome to your new home for football quizzes!</h2>
         <p>Click get started or the sign up button in order to get yourself registered instantly!</p>
-        <ButtonHero class="get-started" onclick="location.href=`https://trivela-trivia.onrender.com/signup`">Get Started!</ButtonHero>
+        <ButtonHero class="get-started" onclick="location.href=`https://trivela-trivia.onrender.com/signup/`">Get Started!</ButtonHero>
       </section>
     </main>
     <hr> <!-- Horizontal rule to separate the main content from the footer -->
